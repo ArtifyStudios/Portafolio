@@ -1410,4 +1410,338 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Project section
+
+// habilidades section
+
+// Skills Section Functionality
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate skill bars on scroll
+    function animateSkillBars() {
+        const skillItems = document.querySelectorAll('.skill-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillProgress = entry.target.querySelector('.skill-progress');
+                    const targetWidth = skillProgress.getAttribute('data-width');
+                    
+                    setTimeout(() => {
+                        skillProgress.style.width = targetWidth + '%';
+                    }, 200);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillItems.forEach(item => {
+            observer.observe(item);
+        });
+    }
+    
+    // Animate overview numbers
+    function animateOverviewNumbers() {
+        const overviewNumbers = document.querySelectorAll('.overview-number');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalText = target.textContent;
+                    
+                    // Extract number and suffix
+                    const numberMatch = finalText.match(/[\d.]+/);
+                    const number = numberMatch ? parseFloat(numberMatch[0]) : 0;
+                    const suffix = finalText.replace(/[\d.]/g, '');
+                    
+                    animateNumber(target, 0, number, suffix, 2000);
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        overviewNumbers.forEach(number => {
+            observer.observe(number);
+        });
+    }
+    
+    function animateNumber(element, start, end, suffix, duration) {
+        const range = end - start;
+        const increment = range / (duration / 16);
+        let current = start;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+                current = end;
+                clearInterval(timer);
+            }
+            
+            // Format number based on suffix
+            let displayValue;
+            if (suffix.includes('+')) {
+                displayValue = Math.floor(current) + '+';
+            } else if (current % 1 !== 0) {
+                displayValue = current.toFixed(1) + suffix;
+            } else {
+                displayValue = Math.floor(current) + suffix;
+            }
+            
+            element.textContent = displayValue;
+        }, 16);
+    }
+    
+    // Animate specialization stats
+    function animateSpecializationStats() {
+        const statNumbers = document.querySelectorAll('.specialization-stats .stat-number');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalText = target.textContent;
+                    
+                    // Extract number and suffix
+                    const numberMatch = finalText.match(/[\d.]+/);
+                    const number = numberMatch ? parseFloat(numberMatch[0]) : 0;
+                    const suffix = finalText.replace(/[\d.]/g, '');
+                    
+                    animateNumber(target, 0, number, suffix, 1500);
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statNumbers.forEach(stat => {
+            observer.observe(stat);
+        });
+    }
+    
+    // Add hover effects to skill items
+    function addSkillHoverEffects() {
+        const skillItems = document.querySelectorAll('.skill-item');
+        
+        skillItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const skillProgress = this.querySelector('.skill-progress');
+                skillProgress.style.boxShadow = '0 4px 15px rgba(139, 92, 246, 0.3)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const skillProgress = this.querySelector('.skill-progress');
+                skillProgress.style.boxShadow = '';
+            });
+        });
+    }
+    
+    // Add click effects to creative skill cards
+    function addCreativeSkillEffects() {
+        const creativeCards = document.querySelectorAll('.creative-skill-card');
+        
+        creativeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Add a pulse effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Show skill details (could be expanded to show modal)
+                const skillName = this.querySelector('h5').textContent;
+                console.log(`Clicked on skill: ${skillName}`);
+            });
+        });
+    }
+    
+    // Add certification hover effects
+    function addCertificationEffects() {
+        const certItems = document.querySelectorAll('.certification-item');
+        
+        certItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const badge = this.querySelector('.cert-badge');
+                badge.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const badge = this.querySelector('.cert-badge');
+                badge.style.transform = '';
+            });
+        });
+    }
+    
+    // Smooth scroll for CTA buttons
+    function addSmoothScroll() {
+        const ctaButtons = document.querySelectorAll('.skills-cta a[href^="#"]');
+        
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // Add staggered animation to cards
+    function addStaggeredAnimation() {
+        const animatedElements = document.querySelectorAll('.skill-item, .creative-skill-card, .specialization-card, .certification-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+    }
+    
+    // Add skill filtering functionality
+    function addSkillFiltering() {
+        // This could be expanded to add filtering by skill type, level, etc.
+        const skillCategories = document.querySelectorAll('.skills-category');
+        
+        skillCategories.forEach(category => {
+            const header = category.querySelector('.category-header');
+            header.style.cursor = 'pointer';
+            
+            header.addEventListener('click', function() {
+                const content = category.querySelector('.skills-list, .creative-skills-grid');
+                const isVisible = content.style.display !== 'none';
+                
+                content.style.display = isVisible ? 'none' : 'block';
+                
+                // Add rotation to icon
+                const icon = this.querySelector('.category-icon');
+                icon.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+    }
+    
+    // Add skill search functionality
+    function addSkillSearch() {
+        // Create search input (could be added to HTML)
+        const searchContainer = document.createElement('div');
+        searchContainer.className = 'skill-search-container mb-4';
+        searchContainer.innerHTML = `
+            <div class="input-group">
+                <input type="text" class="form-control" id="skillSearch" placeholder="Buscar habilidades...">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+            </div>
+        `;
+        
+        const skillsSection = document.querySelector('.skills-section .container');
+        const mainContent = skillsSection.querySelector('.row.g-5');
+        skillsSection.insertBefore(searchContainer, mainContent);
+        
+        const searchInput = document.getElementById('skillSearch');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const skillItems = document.querySelectorAll('.skill-item, .creative-skill-card');
+            
+            skillItems.forEach(item => {
+                const skillName = item.querySelector('h5').textContent.toLowerCase();
+                const skillTags = Array.from(item.querySelectorAll('.skill-tag, .spec-skill'))
+                    .map(tag => tag.textContent.toLowerCase());
+                
+                const matches = skillName.includes(searchTerm) || 
+                    skillTags.some(tag => tag.includes(searchTerm));
+                
+                item.style.display = matches ? 'block' : 'none';
+            });
+        });
+    }
+    
+    // Initialize all functions
+    animateSkillBars();
+    animateOverviewNumbers();
+    animateSpecializationStats();
+    addSkillHoverEffects();
+    addCreativeSkillEffects();
+    addCertificationEffects();
+    addSmoothScroll();
+    addStaggeredAnimation();
+    
+    // Optional features (uncomment to enable)
+    // addSkillFiltering();
+    // addSkillSearch();
+    
+    // Performance optimization for low-end devices
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+        const style = document.createElement('style');
+        style.textContent = `
+            .skill-progress::after {
+                animation: none !important;
+            }
+            .skill-item,
+            .creative-skill-card,
+            .specialization-card,
+            .certification-item {
+                transition: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    console.log('Skills section initialized successfully!');
+});
+
+// Export utilities for external use
+window.SkillsUtils = {
+    animateSkillBar: (skillItem) => {
+        const skillProgress = skillItem.querySelector('.skill-progress');
+        const targetWidth = skillProgress.getAttribute('data-width');
+        skillProgress.style.width = targetWidth + '%';
+    },
+    
+    highlightSkill: (skillName) => {
+        const skillItems = document.querySelectorAll('.skill-item, .creative-skill-card');
+        skillItems.forEach(item => {
+            const name = item.querySelector('h5').textContent;
+            if (name.toLowerCase().includes(skillName.toLowerCase())) {
+                item.style.background = 'rgba(139, 92, 246, 0.1)';
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    },
+    
+    getSkillLevel: (skillName) => {
+        const skillItems = document.querySelectorAll('.skill-item');
+        for (let item of skillItems) {
+            const name = item.querySelector('h5').textContent;
+            if (name.toLowerCase().includes(skillName.toLowerCase())) {
+                return item.querySelector('.skill-percentage').textContent;
+            }
+        }
+        return null;
+    }
+};
+
+// habilidades section
 document.head.appendChild(style);
