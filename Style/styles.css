@@ -3343,3 +3343,393 @@ section {
         animation: none;
     }
 }
+
+/* Fixes optimizados SOLO para móviles - Sin afectar z-index ni performance */
+
+/* Solo aplicar overflow fixes en móviles */
+@media (max-width: 767.98px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Hero section - MANTENER z-index y posicionamiento original */
+  .hero-section {
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative; /* Asegurar contexto de apilamiento */
+  }
+
+  .hero-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 500px;
+    max-height: 100vh;
+    position: relative; /* Mantener posicionamiento */
+  }
+
+  /* IMPORTANTE: Mantener z-index del contenido del hero */
+  .hero-slide-content {
+    position: relative;
+    z-index: 2; /* Asegurar que esté encima de la imagen */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Mantener imagen de fondo */
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Imagen de fondo */
+  }
+
+  /* Hero content - Asegurar visibilidad */
+  .hero-content {
+    position: relative;
+    z-index: 3; /* Encima de todo */
+    padding: 1rem;
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay sutil para legibilidad */
+    border-radius: 8px;
+    margin: 1rem;
+  }
+
+  /* Container adjustments SOLO en móviles */
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Text adjustments SOLO en móviles */
+  .display-3 {
+    font-size: 2rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    color: white; /* Asegurar contraste */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Mejorar legibilidad */
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Button adjustments SOLO en móviles */
+  .d-flex.flex-column.flex-sm-row.gap-3 {
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 4; /* Botones encima de todo */
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 4;
+  }
+
+  /* Stats adjustments SOLO en móviles */
+  .hero-stats {
+    padding: 0.75rem;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-stats .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Carousel controls - Mantener z-index alto */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    z-index: 5; /* Encima de todo */
+    position: absolute;
+  }
+
+  .carousel-control-prev {
+    left: 10px;
+  }
+
+  .carousel-control-next {
+    right: 10px;
+  }
+
+  .carousel-indicators {
+    bottom: 15px;
+    z-index: 5; /* Encima de todo */
+    position: absolute;
+  }
+
+  /* Secciones - Sin forzar reflows */
+  section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1000; /* Navbar siempre encima */
+  }
+
+  /* Skills section */
+  .skills-section,
+  .skills-overview,
+  .skills-category,
+  .specializations-section,
+  .certifications-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Clients carousel */
+  .clients-carousel-wrapper {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  /* Projects section */
+  .project-card,
+  .project-overlay {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Featured project gallery */
+  .featured-gallery-main,
+  .gallery-item {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .gallery-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Courses section */
+  .courses-section,
+  .course-card {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Footer */
+  .modern-footer,
+  .footer-main,
+  .footer-stats,
+  .footer-bottom {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Currency converter */
+  .currency-converter {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Fixes adicionales para pantallas MUY pequeñas */
+@media (max-width: 575.98px) {
+  .container-fluid,
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .hero-carousel-container {
+    min-height: 400px;
+  }
+
+  .display-3 {
+    font-size: 1.75rem;
+  }
+
+  .lead {
+    font-size: 0.9rem;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel-control-prev {
+    left: 5px;
+  }
+
+  .carousel-control-next {
+    right: 5px;
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+
+  /* Hero content más compacto en pantallas muy pequeñas */
+  .hero-content {
+    margin: 0.5rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Prevenir zoom en inputs SOLO en móviles */
+@media screen and (max-width: 767.98px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* IMPORTANTE: Mantener medidas originales para pantallas grandes */
+@media (min-width: 768px) {
+  /* Restaurar z-index y posicionamiento original */
+  .hero-content {
+    background: none;
+    margin: 0;
+  }
+
+  .display-3,
+  .lead {
+    color: inherit;
+    text-shadow: none;
+  }
+
+  .hero-stats {
+    background: none;
+    backdrop-filter: none;
+  }
+
+  /* Medidas originales */
+  .hero-carousel-container {
+    height: 100vh;
+    min-height: 600px;
+  }
+
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 60px;
+    height: 60px;
+  }
+
+  .carousel-control-prev {
+    left: 30px;
+  }
+
+  .carousel-control-next {
+    right: 30px;
+  }
+
+  .carousel-indicators {
+    bottom: 30px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+  }
+}
+
+/* Fix para eliminar titilado - Usar transform en lugar de cambios de layout */
+@media (max-width: 767.98px) {
+  * {
+    /* Optimizar rendering */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Smooth scrolling sin titilado */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    overflow-x: hidden;
+    position: relative;
+    /* Prevenir repaints innecesarios */
+    will-change: auto;
+  }
+}

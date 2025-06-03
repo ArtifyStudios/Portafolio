@@ -2005,5 +2005,56 @@ document.addEventListener("DOMContentLoaded", () => {
   updateFavoritesList()
 })
 
+// JavaScript mínimo para móviles - Sin observers ni reflows forzados
+document.addEventListener("DOMContentLoaded", () => {
+  // Solo ejecutar en móviles
+  const isMobile = () => window.innerWidth <= 767.98
+
+  // Fix inicial SOLO al cargar - Sin observers
+  function applyInitialMobileFixes() {
+    if (!isMobile()) return
+
+    // Solo ajustes críticos sin forzar reflows
+    const body = document.body
+    const html = document.documentElement
+
+    body.style.overflowX = "hidden"
+    html.style.overflowX = "hidden"
+
+    // Fix específico para iOS sin afectar z-index
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      body.style.webkitOverflowScrolling = "touch"
+
+      // Prevenir zoom en inputs
+      const inputs = document.querySelectorAll("input, textarea, select")
+      inputs.forEach((input) => {
+        input.style.fontSize = "16px"
+      })
+    }
+
+    // Fix para Android
+    if (/Android/.test(navigator.userAgent)) {
+      body.style.overflowX = "hidden"
+      html.style.overflowX = "hidden"
+    }
+  }
+
+  // Ejecutar solo al cargar - SIN observers ni resize events
+  applyInitialMobileFixes()
+
+  // Solo manejar orientationchange (crítico para móviles)
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => {
+      if (isMobile()) {
+        document.body.style.overflowX = "hidden"
+        document.documentElement.style.overflowX = "hidden"
+      }
+    }, 100)
+  })
+
+  console.log("Minimal mobile fixes applied - No performance impact!")
+})
+
+// Eliminar completamente el debug y observers que causan titilado
 
 document.head.appendChild(style);
