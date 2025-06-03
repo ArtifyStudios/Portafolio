@@ -2057,4 +2057,99 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Eliminar completamente el debug y observers que causan titilado
 
+// JavaScript para debug y forzar visibilidad del texto
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth <= 767.98) {
+    console.log("🔍 Debugging hero content on mobile...")
+
+    // Buscar todos los elementos de texto en el hero
+    const heroSection =
+      document.querySelector(".hero-section") ||
+      document.querySelector(".carousel") ||
+      document.querySelector('[class*="hero"]')
+
+    if (heroSection) {
+      console.log("✅ Hero section found:", heroSection)
+
+      // Buscar títulos
+      const titles = heroSection.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6",
+      )
+      console.log("📝 Titles found:", titles.length, titles)
+
+      // Buscar párrafos
+      const paragraphs = heroSection.querySelectorAll("p, .lead")
+      console.log("📄 Paragraphs found:", paragraphs.length, paragraphs)
+
+      // Buscar botones
+      const buttons = heroSection.querySelectorAll('.btn, button, a[class*="btn"]')
+      console.log("🔘 Buttons found:", buttons.length, buttons)
+
+      // FORZAR visibilidad de todos los elementos encontrados
+      ;[...titles, ...paragraphs, ...buttons].forEach((element, index) => {
+        element.style.cssText = `
+          position: relative !important;
+          z-index: 1000 !important;
+          color: white !important;
+          text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9) !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          font-weight: bold !important;
+          margin: 1rem 0 !important;
+        `
+        console.log(`✨ Forced visibility for element ${index + 1}:`, element)
+      })
+
+      // Si no se encuentran elementos, crear contenido de emergencia
+      if (titles.length === 0 && paragraphs.length === 0) {
+        console.log("⚠️ No text content found, creating emergency content...")
+
+        const emergencyContent = document.createElement("div")
+        emergencyContent.innerHTML = `
+          <div style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+            color: white;
+            backdrop-filter: blur(10px);
+          ">
+            <h1 style="
+              font-size: 2.5rem;
+              font-weight: bold;
+              margin-bottom: 1rem;
+              text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+            ">ARTIFY PORTFOLIO</h1>
+            <p style="
+              font-size: 1.2rem;
+              margin-bottom: 1.5rem;
+              text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+            ">Creative Digital Solutions</p>
+            <button style="
+              background: #007bff;
+              color: white;
+              border: none;
+              padding: 0.75rem 1.5rem;
+              border-radius: 8px;
+              font-weight: bold;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            ">Ver Proyectos</button>
+          </div>
+        `
+
+        heroSection.appendChild(emergencyContent)
+        console.log("🚨 Emergency content added!")
+      }
+    } else {
+      console.log("❌ Hero section not found")
+    }
+  }
+})
+
 document.head.appendChild(style);
