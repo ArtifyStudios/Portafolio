@@ -2005,17 +2005,14 @@ document.addEventListener("DOMContentLoaded", () => {
   updateFavoritesList()
 })
 
-function adjustViewport() {
-    if (window.innerWidth <= 768) { // Ajusta este valor según tu breakpoint para móviles
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-        document.documentElement.style.overflow = 'auto';
+function adjustMobileScroll() {
+    if (window.innerWidth <= 768) {
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+            mainContent.style.height = window.innerHeight + 'px';
+        }
     }
 }
-
-// Ejecutar al cargar y al redimensionar la ventana
-window.addEventListener('load', adjustViewport);
-window.addEventListener('resize', adjustViewport);
+window.addEventListener('resize', adjustMobileScroll);
+window.addEventListener('load', adjustMobileScroll);
 document.head.appendChild(style);

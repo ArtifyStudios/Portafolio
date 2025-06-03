@@ -3344,22 +3344,30 @@ section {
     }
 }
 
-/* Estilos generales (PC y tablet) */
+/* Estilos generales para PC/tablet */
 body {
-    overflow: auto; /* Permite scroll si el contenido es mayor que la pantalla */
+    overflow: auto;
 }
 
-/* Estilos específicos para móviles */
+/* Estilos para móviles (sin barras pero con scroll táctil) */
 @media (max-width: 768px) {
-    body {
-        overflow: hidden; /* Oculta las barras de desplazamiento */
-        width: 100vw;    /* Asegura que el ancho sea exactamente el del viewport */
-        height: 100vh;   /* Asegura que el alto sea exactamente el del viewport */
-        position: fixed; /* Evita cualquier rebalse del contenido */
+    html, body {
+        overflow: hidden;        /* Oculta las barras */
+        height: 100%;            /* Asegura altura completa */
+        position: relative;      /* Permite scroll interno */
     }
-
-    /* Opcional: Si hay elementos que causan overflow horizontal */
-    * {
-        max-width: 100%; /* Evita que elementos excedan el ancho de la pantalla */
+    body {
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        overflow-y: auto;        /* Permite scroll vertical (sin barra visible) */
+        overscroll-behavior-y: contain;    /* Evita efectos de rebote */
+    }
+    /* Opcional: Contenedor principal con scroll */
+    .main-content {
+        height: 100vh;
+        overflow-y: scroll;
+        scrollbar-width: none;   /* Oculta barra en Firefox */
+    }
+    .main-content::-webkit-scrollbar {
+        display: none;           /* Oculta barra en Chrome/Safari */
     }
 }
