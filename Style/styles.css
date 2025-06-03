@@ -3343,3 +3343,372 @@ section {
         animation: none;
     }
 }
+
+/* Fixes SOLO para móviles - Pantallas grandes mantienen medidas originales */
+
+/* Solo aplicar overflow fixes en móviles */
+@media (max-width: 767.98px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Fixes específicos para el hero carousel SOLO en móviles */
+  .hero-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .hero-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 500px;
+    max-height: 100vh;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-slide-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-background-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
+
+  /* Container adjustments SOLO en móviles */
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero content adjustments SOLO en móviles */
+  .hero-content {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  /* Text adjustments SOLO en móviles */
+  .display-3 {
+    font-size: 2rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Button adjustments SOLO en móviles */
+  .d-flex.flex-column.flex-sm-row.gap-3 {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  /* Stats adjustments SOLO en móviles */
+  .hero-stats {
+    padding: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .hero-stats .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Carousel controls adjustments SOLO en móviles */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-control-prev {
+    left: 10px;
+  }
+
+  .carousel-control-next {
+    right: 10px;
+  }
+
+  .carousel-indicators {
+    bottom: 15px;
+  }
+
+  /* Secciones SOLO en móviles */
+  section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Navbar SOLO en móviles */
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .navbar-collapse {
+    max-width: 100%;
+  }
+
+  /* Skills section SOLO en móviles */
+  .skills-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .skills-overview,
+  .skills-category,
+  .specializations-section,
+  .certifications-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Clients carousel SOLO en móviles */
+  .clients-carousel-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Projects section SOLO en móviles */
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-overlay {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Featured project gallery SOLO en móviles */
+  .featured-gallery-main {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .gallery-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .gallery-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Courses section SOLO en móviles */
+  .courses-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .course-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Footer SOLO en móviles */
+  .modern-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .footer-main,
+  .footer-stats,
+  .footer-bottom {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Currency converter SOLO en móviles */
+  .currency-converter {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Responsive images SOLO en móviles */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Fixes adicionales para pantallas MUY pequeñas (menos de 576px) */
+@media (max-width: 575.98px) {
+  /* Reducir aún más el padding en pantallas muy pequeñas */
+  .container-fluid,
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  /* Ajustar el hero para pantallas muy pequeñas */
+  .hero-carousel-container {
+    min-height: 400px;
+  }
+
+  .display-3 {
+    font-size: 1.75rem;
+  }
+
+  .lead {
+    font-size: 0.9rem;
+  }
+
+  /* Ajustar controles del carousel */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel-control-prev {
+    left: 5px;
+  }
+
+  .carousel-control-next {
+    right: 5px;
+  }
+
+  /* Ajustar indicadores */
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+}
+
+/* Prevenir zoom en inputs SOLO en móviles */
+@media screen and (max-width: 767.98px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Fix específico para el hero en móviles sin afectar desktop */
+@media (max-width: 767.98px) {
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .hero-section {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .container-fluid.px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* IMPORTANTE: Mantener medidas originales para pantallas grandes */
+@media (min-width: 768px) {
+  /* Asegurar que las medidas originales se mantengan */
+  .hero-carousel-container {
+    height: 100vh;
+    min-height: 600px; /* Valor original */
+  }
+
+  .display-3 {
+    font-size: 2.5rem; /* Valor original de Bootstrap */
+  }
+
+  .container-fluid {
+    padding-left: 15px; /* Valor original de Bootstrap */
+    padding-right: 15px;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Carousel controls tamaño original */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 60px; /* Valor original */
+    height: 60px;
+  }
+
+  .carousel-control-prev {
+    left: 30px; /* Valor original */
+  }
+
+  .carousel-control-next {
+    right: 30px; /* Valor original */
+  }
+
+  .carousel-indicators {
+    bottom: 30px; /* Valor original */
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 12px; /* Valor original */
+    height: 12px;
+    margin: 0 5px;
+  }
+}

@@ -2005,5 +2005,178 @@ document.addEventListener("DOMContentLoaded", () => {
   updateFavoritesList()
 })
 
+// JavaScript SOLO para móviles - No afecta pantallas grandes
+document.addEventListener("DOMContentLoaded", () => {
+  // Solo ejecutar en móviles
+  function isMobile() {
+    return window.innerWidth <= 767.98
+  }
+
+  // Función para prevenir overflow horizontal SOLO en móviles
+  function preventHorizontalOverflowMobile() {
+    if (!isMobile()) return
+
+    const body = document.body
+    const html = document.documentElement
+
+    // Asegurar que no hay scroll horizontal solo en móviles
+    body.style.overflowX = "hidden"
+    html.style.overflowX = "hidden"
+
+    // Ajustar el ancho máximo solo en móviles
+    body.style.maxWidth = "100vw"
+    html.style.maxWidth = "100vw"
+  }
+
+  // Función para ajustar el hero SOLO en móviles
+  function adjustHeroForMobile() {
+    if (!isMobile()) return
+
+    const heroSection = document.querySelector(".hero-section")
+    const heroContainer = document.querySelector(".hero-carousel-container")
+
+    if (heroSection && heroContainer) {
+      heroSection.style.width = "100vw"
+      heroSection.style.maxWidth = "100vw"
+      heroSection.style.marginLeft = "calc(-50vw + 50%)"
+      heroSection.style.marginRight = "calc(-50vw + 50%)"
+
+      heroContainer.style.width = "100%"
+      heroContainer.style.maxWidth = "100%"
+    }
+  }
+
+  // Función para ajustar imágenes SOLO en móviles
+  function adjustImagesMobile() {
+    if (!isMobile()) return
+
+    const images = document.querySelectorAll("img")
+    images.forEach((img) => {
+      img.style.maxWidth = "100%"
+      img.style.height = "auto"
+    })
+  }
+
+  // Función para ajustar el carousel de clientes SOLO en móviles
+  function adjustClientsCarouselMobile() {
+    if (!isMobile()) return
+
+    const carousel = document.querySelector(".clients-carousel-wrapper")
+    if (carousel) {
+      carousel.style.overflow = "hidden"
+      carousel.style.width = "100%"
+      carousel.style.maxWidth = "100%"
+    }
+  }
+
+  // Función para restaurar medidas originales en pantallas grandes
+  function restoreOriginalSizes() {
+    if (isMobile()) return
+
+    const body = document.body
+    const html = document.documentElement
+    const heroSection = document.querySelector(".hero-section")
+
+    // Restaurar overflow normal en pantallas grandes
+    body.style.overflowX = ""
+    html.style.overflowX = ""
+    body.style.maxWidth = ""
+    html.style.maxWidth = ""
+
+    // Restaurar hero section
+    if (heroSection) {
+      heroSection.style.width = ""
+      heroSection.style.maxWidth = ""
+      heroSection.style.marginLeft = ""
+      heroSection.style.marginRight = ""
+    }
+  }
+
+  // Función para manejar el redimensionamiento
+  function handleResize() {
+    if (isMobile()) {
+      preventHorizontalOverflowMobile()
+      adjustHeroForMobile()
+      adjustImagesMobile()
+      adjustClientsCarouselMobile()
+    } else {
+      restoreOriginalSizes()
+    }
+
+    // Forzar recálculo del layout solo si es necesario
+    if (isMobile()) {
+      document.body.style.display = "none"
+      document.body.offsetHeight // trigger reflow
+      document.body.style.display = ""
+    }
+  }
+
+  // Ejecutar al cargar
+  handleResize()
+
+  // Ejecutar al redimensionar
+  window.addEventListener("resize", handleResize)
+
+  // Ejecutar cuando cambie la orientación
+  window.addEventListener("orientationchange", () => {
+    setTimeout(handleResize, 100)
+  })
+
+  // Fix específico para iOS SOLO en móviles
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent) && isMobile()) {
+    document.body.style.webkitOverflowScrolling = "touch"
+
+    // Prevenir zoom en inputs
+    const inputs = document.querySelectorAll("input, textarea, select")
+    inputs.forEach((input) => {
+      input.style.fontSize = "16px"
+    })
+  }
+
+  // Fix para Android SOLO en móviles
+  if (/Android/.test(navigator.userAgent) && isMobile()) {
+    document.body.style.overflowX = "hidden"
+    document.documentElement.style.overflowX = "hidden"
+  }
+
+  // Monitorear cambios en el DOM que puedan causar overflow SOLO en móviles
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList" && isMobile()) {
+        setTimeout(preventHorizontalOverflowMobile, 100)
+      }
+    })
+  })
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  })
+
+  console.log("Mobile-only overflow fixes applied successfully!")
+})
+
+// Función para debug de overflow SOLO en móviles (solo para desarrollo)
+function debugOverflowMobile() {
+  if (window.innerWidth > 767.98) {
+    console.log("Debug skipped - Not mobile device")
+    return
+  }
+
+  const elements = document.querySelectorAll("*")
+  elements.forEach((el) => {
+    if (el.scrollWidth > el.clientWidth) {
+      console.log("Mobile horizontal overflow detected:", el)
+      el.style.border = "2px solid red"
+    }
+    if (el.scrollHeight > el.clientHeight) {
+      console.log("Mobile vertical overflow detected:", el)
+      el.style.border = "2px solid blue"
+    }
+  })
+}
+
+// Descomenta la siguiente línea para debug solo en móviles (solo en desarrollo)
+// setTimeout(debugOverflowMobile, 2000);
 
 document.head.appendChild(style);
