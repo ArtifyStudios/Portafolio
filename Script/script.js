@@ -2015,4 +2015,14 @@ function adjustMobileScroll() {
 }
 window.addEventListener('resize', adjustMobileScroll);
 window.addEventListener('load', adjustMobileScroll);
+
+// En tu script.js
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth < 992) {
+            const navbar = document.querySelector('.navbar-collapse');
+            bootstrap.Collapse.getInstance(navbar).hide();
+        }
+    });
+});
 document.head.appendChild(style);
