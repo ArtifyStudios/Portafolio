@@ -3344,3 +3344,22 @@ section {
     }
 }
 
+/* Estilos generales (PC y tablet) */
+body {
+    overflow: auto; /* Permite scroll si el contenido es mayor que la pantalla */
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden; /* Oculta las barras de desplazamiento */
+        width: 100vw;    /* Asegura que el ancho sea exactamente el del viewport */
+        height: 100vh;   /* Asegura que el alto sea exactamente el del viewport */
+        position: fixed; /* Evita cualquier rebalse del contenido */
+    }
+
+    /* Opcional: Si hay elementos que causan overflow horizontal */
+    * {
+        max-width: 100%; /* Evita que elementos excedan el ancho de la pantalla */
+    }
+}

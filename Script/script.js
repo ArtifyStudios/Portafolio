@@ -2005,5 +2005,17 @@ document.addEventListener("DOMContentLoaded", () => {
   updateFavoritesList()
 })
 
+function adjustViewport() {
+    if (window.innerWidth <= 768) { // Ajusta este valor según tu breakpoint para móviles
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+    }
+}
 
+// Ejecutar al cargar y al redimensionar la ventana
+window.addEventListener('load', adjustViewport);
+window.addEventListener('resize', adjustViewport);
 document.head.appendChild(style);
