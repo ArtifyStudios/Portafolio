@@ -3355,12 +3355,12 @@ section {
     max-width: 100vw;
   }
 
-  /* Hero section - MANTENER z-index y posicionamiento original */
+  /* Hero section - MANTENER contenido visible */
   .hero-section {
     width: 100vw;
     max-width: 100vw;
     overflow: hidden;
-    position: relative; /* Asegurar contexto de apilamiento */
+    position: relative;
   }
 
   .hero-carousel-container {
@@ -3370,45 +3370,145 @@ section {
     height: 100vh;
     min-height: 500px;
     max-height: 100vh;
-    position: relative; /* Mantener posicionamiento */
+    position: relative;
   }
 
-  /* IMPORTANTE: Mantener z-index del contenido del hero */
+  /* Carousel item - Asegurar que el contenido sea visible */
+  .carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* IMPORTANTE: Imagen de fondo */
+  .hero-background-image,
+  .hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  /* IMPORTANTE: Contenido del hero - SIEMPRE VISIBLE */
   .hero-slide-content {
     position: relative;
-    z-index: 2; /* Asegurar que esté encima de la imagen */
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .hero-background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 10;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Mantener imagen de fondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
   }
 
-  .hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Imagen de fondo */
-  }
-
-  /* Hero content - Asegurar visibilidad */
+  /* Hero content - Contenedor principal del texto */
   .hero-content {
     position: relative;
-    z-index: 3; /* Encima de todo */
-    padding: 1rem;
+    z-index: 15;
+    width: 100%;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Overlay sutil para legibilidad */
+    text-align: center;
+    padding: 1.5rem;
+    /* Overlay muy sutil para legibilidad */
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+  }
+
+  /* Títulos - ASEGURAR VISIBILIDAD COMPLETA */
+  .hero-content .display-3,
+  .hero-content h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    color: white !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+    z-index: 20;
+    position: relative;
+  }
+
+  /* Subtítulos y texto */
+  .hero-content .lead,
+  .hero-content p {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    color: white !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 1.5rem !important;
+    z-index: 20;
+    position: relative;
+  }
+
+  /* Botones - SIEMPRE VISIBLES */
+  .hero-content .btn,
+  .hero-content .d-flex {
+    position: relative;
+    z-index: 25;
+    margin-top: 1rem;
+  }
+
+  .hero-content .btn {
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    margin: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Stats del hero */
+  .hero-stats {
+    position: relative;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-stats .d-flex {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-stats h3,
+  .hero-stats .h3 {
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .hero-stats p,
+  .hero-stats .text-muted {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.9rem !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  /* REGLA GLOBAL para todo el texto del hero en móviles */
+  .hero-section * {
+    color: white !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* Excepciones para botones */
+  .hero-section .btn {
+    color: inherit !important;
+    text-shadow: none !important;
+  }
+
+  /* Asegurar que los elementos flex mantengan su estructura */
+  .hero-content .d-flex.flex-column.flex-sm-row.gap-3 {
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 25;
+    margin-top: 1.5rem;
   }
 
   /* Container adjustments SOLO en móviles */
@@ -3443,13 +3543,6 @@ section {
   }
 
   /* Button adjustments SOLO en móviles */
-  .d-flex.flex-column.flex-sm-row.gap-3 {
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
-    z-index: 4; /* Botones encima de todo */
-  }
-
   .btn {
     width: 100%;
     max-width: 100%;
