@@ -3371,13 +3371,3 @@ body {
         display: none;           /* Oculta barra en Chrome/Safari */
     }
 }
-
-.navbar-collapse {
-    z-index: 1000;
-    position: relative;
-    background: white; /* Fondo sólido para el menú móvil */
-}
-
-.navbar-toggler {
-    z-index: 1001;
-}
