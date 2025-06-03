@@ -3381,21 +3381,3 @@ body {
 .navbar-toggler {
     z-index: 1001;
 }
-
-/* Mobile menu styles */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        position: fixed;
-        top: 56px; /* Ajusta según altura de tu navbar */
-        left: 0;
-        right: 0;
-        padding: 20px;
-        background: white;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-    
-    .navbar-nav {
-        padding-bottom: 20px;
-    }
-}
