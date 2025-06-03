@@ -2016,4 +2016,9 @@ function adjustMobileScroll() {
 window.addEventListener('resize', adjustMobileScroll);
 window.addEventListener('load', adjustMobileScroll);
 
+// Activar los tooltips y popovers
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
 document.head.appendChild(style);

@@ -3371,3 +3371,30 @@ body {
         display: none;           /* Oculta barra en Chrome/Safari */
     }
 }
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;  /* Solo ocultar el scroll horizontal */
+    width: 100%;
+  }
+  /* Elimina cualquier overflow-y: hidden que pueda estar bloqueando el scroll */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    display: block;
+  }
+  
+  .navbar-collapse {
+    background-color: var(--dark-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+  }
+}
+
+.nav-link {
+  touch-action: manipulation; /* Mejora la respuesta táctil */
+}
