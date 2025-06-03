@@ -1744,4 +1744,266 @@ window.SkillsUtils = {
 };
 
 // habilidades section
+
+// Conversor de Monedas - Funcionalidad
+document.addEventListener("DOMContentLoaded", () => {
+  // Elementos del DOM
+  const amountInput = document.getElementById("amount")
+  const fromCurrency = document.getElementById("from-currency")
+  const toCurrency = document.getElementById("to-currency")
+  const resultElement = document.getElementById("result")
+  const exchangeRateElement = document.getElementById("exchange-rate")
+  const lastUpdatedElement = document.getElementById("last-updated")
+  const footerLastUpdatedElement = document.getElementById("footer-last-updated")
+  const convertBtn = document.getElementById("convert-btn")
+  const swapBtn = document.getElementById("swap-btn")
+  const addToFavoritesBtn = document.getElementById("add-to-favorites")
+  const favoritesContainer = document.getElementById("favorites-container")
+  const favoritesList = document.getElementById("favorites-list")
+
+  // Tasas de cambio (actualizadas al 3 de junio de 2025)
+  // En una aplicación real, estas tasas se obtendrían de una API
+  const exchangeRates = {
+    USD: {
+      EUR: 0.92,
+      GBP: 0.79,
+      COP: 4000,
+      CNY: 7.25,
+      USD: 1,
+    },
+    EUR: {
+      USD: 1.09,
+      GBP: 0.86,
+      COP: 4350,
+      CNY: 7.88,
+      EUR: 1,
+    },
+    GBP: {
+      USD: 1.27,
+      EUR: 1.16,
+      COP: 5070,
+      CNY: 9.18,
+      GBP: 1,
+    },
+    COP: {
+      USD: 0.00025,
+      EUR: 0.00023,
+      GBP: 0.0002,
+      CNY: 0.0018,
+      COP: 1,
+    },
+    CNY: {
+      USD: 0.138,
+      EUR: 0.127,
+      GBP: 0.109,
+      COP: 552,
+      CNY: 1,
+    },
+  }
+
+  // Fecha de actualización simulada
+  const lastUpdated = new Date()
+  lastUpdated.setHours(lastUpdated.getHours() - 2) // Simulamos que se actualizó hace 2 horas
+
+  // Mostrar fecha de actualización
+  const formattedDate = lastUpdated.toLocaleString()
+  lastUpdatedElement.textContent = `Actualizado: ${formattedDate}`
+  footerLastUpdatedElement.textContent = formattedDate
+
+  // Función para convertir monedas
+  function convertCurrency() {
+    const amount = Number.parseFloat(amountInput.value)
+    const from = fromCurrency.value
+    const to = toCurrency.value
+
+    if (isNaN(amount)) {
+      showError("Por favor ingresa una cantidad válida")
+      return
+    }
+
+    // Simular carga
+    resultElement.textContent = "Calculando"
+    resultElement.classList.add("loading")
+
+    // Simular retraso de red
+    setTimeout(() => {
+      const rate = exchangeRates[from][to]
+      const result = amount * rate
+
+      // Mostrar resultado con formato según la moneda
+      resultElement.classList.remove("loading")
+      resultElement.textContent = formatCurrency(result, to)
+      resultElement.classList.add("result-fade")
+
+      // Mostrar tasa de cambio
+      exchangeRateElement.textContent = `1 ${from} = ${formatNumber(rate)} ${to}`
+
+      // Quitar animación después
+      setTimeout(() => {
+        resultElement.classList.remove("result-fade")
+      }, 500)
+    }, 800)
+  }
+
+  // Formatear número según la moneda
+  function formatCurrency(amount, currency) {
+    switch (currency) {
+      case "USD":
+        return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount)
+      case "EUR":
+        return new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount)
+      case "GBP":
+        return new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" }).format(amount)
+      case "COP":
+        return new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(
+          amount,
+        )
+      case "CNY":
+        return new Intl.NumberFormat("zh-CN", { style: "currency", currency: "CNY" }).format(amount)
+      default:
+        return amount.toFixed(2)
+    }
+  }
+
+  // Formatear número para mostrar tasa de cambio
+  function formatNumber(number) {
+    if (number >= 100) {
+      return number.toLocaleString(undefined, { maximumFractionDigits: 0 })
+    } else if (number >= 10) {
+      return number.toLocaleString(undefined, { maximumFractionDigits: 2 })
+    } else if (number >= 1) {
+      return number.toLocaleString(undefined, { maximumFractionDigits: 2 })
+    } else {
+      return number.toLocaleString(undefined, { maximumFractionDigits: 5 })
+    }
+  }
+
+  // Mostrar mensaje de error
+  function showError(message) {
+    resultElement.textContent = message
+    resultElement.style.color = "#dc3545"
+
+    setTimeout(() => {
+      resultElement.style.color = ""
+    }, 3000)
+  }
+
+  // Intercambiar monedas
+  function swapCurrencies() {
+    const tempCurrency = fromCurrency.value
+    fromCurrency.value = toCurrency.value
+    toCurrency.value = tempCurrency
+
+    // Actualizar conversión
+    convertCurrency()
+  }
+
+  // Guardar conversión favorita
+  function addToFavorites() {
+    const amount = Number.parseFloat(amountInput.value)
+    const from = fromCurrency.value
+    const to = toCurrency.value
+
+    if (isNaN(amount)) return
+
+    // Obtener favoritos existentes
+    const favorites = JSON.parse(localStorage.getItem("currencyFavorites")) || []
+
+    // Agregar nuevo favorito
+    const newFavorite = {
+      id: Date.now(),
+      amount,
+      from,
+      to,
+      date: new Date().toISOString(),
+    }
+
+    favorites.push(newFavorite)
+
+    // Guardar en localStorage
+    localStorage.setItem("currencyFavorites", JSON.stringify(favorites))
+
+    // Actualizar UI
+    updateFavoritesList()
+
+    // Mostrar contenedor de favoritos
+    favoritesContainer.classList.remove("d-none")
+  }
+
+  // Actualizar lista de favoritos
+  function updateFavoritesList() {
+    const favorites = JSON.parse(localStorage.getItem("currencyFavorites")) || []
+
+    if (favorites.length === 0) {
+      favoritesContainer.classList.add("d-none")
+      return
+    }
+
+    // Limpiar lista
+    favoritesList.innerHTML = ""
+
+    // Agregar cada favorito
+    favorites.forEach((fav) => {
+      const rate = exchangeRates[fav.from][fav.to]
+      const result = fav.amount * rate
+
+      const favItem = document.createElement("div")
+      favItem.className =
+        "list-group-item list-group-item-action favorite-item d-flex justify-content-between align-items-center"
+      favItem.innerHTML = `
+        <div>
+          <div class="d-flex align-items-center">
+            <span class="fw-bold">${fav.amount} ${fav.from}</span>
+            <i class="bi bi-arrow-right mx-2"></i>
+            <span class="fw-bold">${formatCurrency(result, fav.to)}</span>
+          </div>
+          <small class="text-muted">${new Date(fav.date).toLocaleDateString()}</small>
+        </div>
+        <button class="btn btn-sm btn-link text-danger delete-favorite" data-id="${fav.id}">
+          <i class="bi bi-trash"></i>
+        </button>
+      `
+
+      favoritesList.appendChild(favItem)
+    })
+
+    // Agregar eventos a botones de eliminar
+    document.querySelectorAll(".delete-favorite").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const id = Number.parseInt(this.getAttribute("data-id"))
+        deleteFavorite(id)
+      })
+    })
+  }
+
+  // Eliminar favorito
+  function deleteFavorite(id) {
+    let favorites = JSON.parse(localStorage.getItem("currencyFavorites")) || []
+    favorites = favorites.filter((fav) => fav.id !== id)
+    localStorage.setItem("currencyFavorites", JSON.stringify(favorites))
+    updateFavoritesList()
+  }
+
+  // Event listeners
+  convertBtn.addEventListener("click", convertCurrency)
+  swapBtn.addEventListener("click", swapCurrencies)
+  addToFavoritesBtn.addEventListener("click", addToFavorites)
+
+  // Convertir automáticamente al cambiar opciones
+  fromCurrency.addEventListener("change", convertCurrency)
+  toCurrency.addEventListener("change", convertCurrency)
+
+  // Convertir al presionar Enter en el input
+  amountInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      convertCurrency()
+    }
+  })
+
+  // Inicializar
+  convertCurrency()
+  updateFavoritesList()
+})
+
+
 document.head.appendChild(style);
