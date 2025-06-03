@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
     <title>Artify Studios - Portafolio de Artista 3D</title>
     
     <!-- Bootstrap 5 CSS -->
@@ -2991,5 +2992,89 @@
     <!-- Custom JS -->
     <script src="Script/script.js"></script>
     
+    <script>
+// Cierra el menú al hacer clic en un enlace en móviles
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Cierra el menú al hacer clic en un enlace (solo en móviles)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992) { // 992px es el breakpoint lg de Bootstrap
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+    });
+    
+    // Scroll suave mejorado para todos los enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Calcula la posición considerando el navbar fijo
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Cambia la URL sin recargar la página
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                } else {
+                    window.location.hash = targetId;
+                }
+            }
+        });
+    });
+});
+
+// Manejo especial para iOS que a veces ignora el scroll suave
+document.addEventListener('DOMContentLoaded', function() {
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    // Scroll suave alternativo para iOS
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 500;
+                    let start = null;
+                    
+                    window.requestAnimationFrame(function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const percentage = Math.min(progress / duration, 1);
+                        
+                        window.scrollTo(0, startPosition + distance * percentage);
+                        
+                        if (progress < duration) {
+                            window.requestAnimationFrame(step);
+                        }
+                    });
+                }
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>

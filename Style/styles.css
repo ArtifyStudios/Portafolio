@@ -3380,19 +3380,25 @@ body {
   /* Elimina cualquier overflow-y: hidden que pueda estar bloqueando el scroll */
 }
 
-@media (max-width: 768px) {
-  .navbar-nav .nav-link {
-    padding: 10px 15px;
-    display: block;
-  }
-  
-  .navbar-collapse {
-    background-color: var(--dark-bg);
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    border: 1px solid var(--border-color);
-  }
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 15px;
+        background-color: #000; /* Ajusta al color de tu tema */
+        margin-top: 10px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-link {
+        padding: 10px 15px;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(139, 92, 246, 0.1); /* Color morado claro */
+    }
 }
 
 .nav-link {
