@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Artify Development - Plugins y Scripts | Artify Studios</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- More Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
+
+    <style>
+        .dev-hero {
+            padding: 90px 0 60px; text-align: center;
+            background: radial-gradient(ellipse at top, rgba(217, 72, 95, 0.18), transparent 60%), #000;
+        }
+        .dev-hero .dev-logo { width: 100%; max-width: 420px; height: auto; margin-bottom: 1.5rem; border-radius: 0; }
+        .dev-hero .dev-logo:hover { transform: none; }
+
+        .dev-steps { background: #000; padding: 20px 0 70px; }
+        .step-card {
+            height: 100%; background: #111; border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 1.5rem; text-align: center; transition: all .3s ease;
+        }
+        .step-card:hover { border-color: var(--purple-primary); transform: translateY(-5px); }
+        .step-card i { font-size: 2rem; color: var(--purple-primary); }
+        .step-card h5 { color: var(--text-primary); margin: .75rem 0 .5rem; }
+        .step-card p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+
+        .dev-products { background: #1a1a1a; padding: 70px 0 80px; }
+        .product-panel { scroll-margin-top: 90px;
+            background: #111; border: 1px solid var(--border-color); border-radius: 16px;
+            overflow: hidden; margin-bottom: 2rem;
+        }
+        .product-media { background: #000; height: 100%; min-height: 260px; display: flex; align-items: center; justify-content: center; }
+        .product-media video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; }
+        .product-media video:hover { transform: none; }
+        .product-body { padding: 2rem; }
+        .product-logo { width: 84px; height: 84px; object-fit: contain; border-radius: 0; margin-bottom: 1rem; }
+        .product-logo:hover { transform: none; }
+        .product-body h3 { color: var(--text-primary); font-weight: 700; }
+        .product-body .product-desc { color: var(--text-muted); }
+
+        .product-tag {
+            display: inline-flex; align-items: center; gap: .4rem; font-size: .75rem; font-weight: 600;
+            padding: .3rem .7rem; border-radius: 20px; margin: 0 .4rem .6rem 0;
+            background: rgba(217, 72, 95, 0.12); border: 1px solid var(--purple-primary); color: var(--purple-light);
+        }
+        .product-features { list-style: none; padding: 0; margin: 1.25rem 0; }
+        .product-features li { color: var(--text-secondary); font-size: .92rem; margin-bottom: .5rem; }
+
+        .price-box { margin: 1.25rem 0; }
+        .price-now { font-size: 2rem; font-weight: 700; color: var(--purple-light); line-height: 1; }
+        .price-old { font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; margin-left: .5rem; }
+        .price-cop { font-size: .8rem; color: var(--text-muted); margin-left: .35rem; }
+        .offer-pill {
+            display: inline-block; margin-top: .6rem; font-size: .8rem; font-weight: 600;
+            padding: .3rem .75rem; border-radius: 20px; background: var(--purple-primary); color: #fff;
+        }
+
+        .soon-media {
+            background: radial-gradient(circle at center, rgba(217, 72, 95, .25), #000 70%);
+            flex-direction: column; gap: .75rem; color: var(--text-secondary); text-align: center; padding: 2rem;
+        }
+        .soon-media i { font-size: 4rem; color: var(--purple-light); }
+        .soon-media span { letter-spacing: .15em; text-transform: uppercase; font-size: .8rem; }
+
+        .dev-cta { background: #000; padding: 70px 0; text-align: center; border-top: 1px solid var(--border-color); }
+        @media (max-width: 575px) { .product-body { padding: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="artify-development.html" aria-current="page">Artify Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="dev-hero">
+        <div class="container">
+            <span class="badge bg-outline-purple mb-3">Plugins y Scripts</span>
+            <div><img src="img/Artify-development.png" class="dev-logo" alt="Artify Development"></div>
+            <p class="lead text-muted mx-auto" style="max-width: 760px;">
+                En Artify creamos, diseñamos, codificamos y empaquetamos plugins y scripts para tus programas
+                favoritos. Automatiza las tareas que a mano te tomarían horas y dedica ese tiempo a crear.
+            </p>
+        </div>
+    </header>
+
+    <!-- Cómo trabajamos -->
+    <section class="dev-steps">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-lg-3"><div class="step-card"><i class="bi bi-lightbulb"></i><h5>Creamos</h5><p>Detectamos tareas repetitivas y las convertimos en ideas de herramientas.</p></div></div>
+                <div class="col-6 col-lg-3"><div class="step-card"><i class="bi bi-vector-pen"></i><h5>Diseñamos</h5><p>Interfaces claras y fáciles de usar, pensadas para artistas.</p></div></div>
+                <div class="col-6 col-lg-3"><div class="step-card"><i class="bi bi-code-slash"></i><h5>Codificamos</h5><p>Scripts y plugins estables que se integran con tu flujo de trabajo.</p></div></div>
+                <div class="col-6 col-lg-3"><div class="step-card"><i class="bi bi-box-seam"></i><h5>Empaquetamos</h5><p>Listos para instalar y usar, sin configuraciones complicadas.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="scripts" class="dev-products">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-outline-purple mb-3">Catálogo</span>
+                <h2 class="display-6 fw-bold">Nuestros scripts</h2>
+            </div>
+
+            <!-- Retícula Pro -->
+            <div class="product-panel" id="reticula-pro">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-6">
+                        <div class="product-media">
+                            <video controls preload="metadata" playsinline poster="img/reticula-pro-poster.jpg">
+                                <source src="video/artify-reticula-pro.mp4" type="video/mp4">
+                                Tu navegador no soporta video HTML5.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="product-body">
+                            <img src="img/reticula-pro-logo.webp" class="product-logo" alt="Artify Retícula Pro">
+                            <div>
+                                <span class="product-tag"><i class="bi bi-lightning-charge-fill"></i> Script</span>
+                                <span class="product-tag"><i class="bi bi-brush"></i> Adobe Photoshop</span>
+                            </div>
+                            <h3>Artify Retícula Pro</h3>
+                            <p class="product-desc">
+                                Script para Photoshop que automatiza la creación de retículas y te ahorra el trabajo manual
+                                en cada proyecto.
+                            </p>
+                            <ul class="product-features">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Ahorra tiempo en tareas repetitivas</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Se integra directo en Photoshop</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Versión 1.1</li>
+                            </ul>
+                            <div class="price-box">
+                                <div>
+                                    <span class="price-now" id="reticulaPrice">$45.000</span>
+                                    <span class="price-old" id="reticulaOld">$60.000</span>
+                                    <span class="price-cop">COP</span>
+                                </div>
+                                <span class="offer-pill" id="reticulaOffer"><i class="bi bi-tag-fill me-1"></i>Oferta hasta el 30 de noviembre</span>
+                            </div>
+                            <a href="https://wa.link/yu2avl" class="btn btn-purple btn-lg" target="_blank" rel="noopener">
+                                <i class="bi bi-whatsapp me-2"></i>Comprar ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autosave Pro -->
+            <div class="product-panel">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-6">
+                        <div class="product-media soon-media">
+                            <i class="bi bi-floppy2-fill"></i>
+                            <span>Próximamente</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="product-body">
+                            <div>
+                                <span class="product-tag"><i class="bi bi-hourglass-split"></i> Próximamente</span>
+                                <span class="product-tag"><i class="bi bi-gift-fill"></i> Gratis por tiempo limitado</span>
+                            </div>
+                            <h3>Artify Autosave Pro</h3>
+                            <p class="product-desc">
+                                Guardado automático para que nunca pierdas tu progreso. Llegará próximamente y será
+                                gratis por tiempo limitado.
+                            </p>
+                            <div class="price-box">
+                                <span class="price-now">Gratis</span>
+                                <span class="price-cop">por tiempo limitado</span>
+                            </div>
+                            <a href="https://wa.link/yu2avl" class="btn btn-outline-purple btn-lg" target="_blank" rel="noopener">
+                                <i class="bi bi-bell me-2"></i>Avísame cuando salga
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dev-cta">
+        <div class="container">
+            <h2 class="fw-bold mb-3">¿Necesitas un script o plugin a medida?</h2>
+            <p class="lead text-muted mb-4">Cuéntanos qué tarea quieres automatizar y la convertimos en una herramienta.</p>
+            <a href="https://wa.link/yu2avl" class="btn btn-purple btn-lg" target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp me-2"></i>Escribir por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-brand">
+                            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                            </a>
+                            <p class="footer-description">
+                                Creando mundos digitales extraordinarios con precisión técnica y visión artística.
+                                Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
+                            </p>
+                            <div class="social-links">
+                                <h6 class="social-title">Síguenos</h6>
+                                <div class="social-icons">
+                                    <a href="https://wa.link/yu2avl" class="social-link" aria-label="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/juancitow_/" class="social-link" aria-label="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://discord.gg/U8vkHZRyqS" class="social-link" aria-label="discord"><i class="bi bi-discord"></i></a>
+                                    <a href="https://www.youtube.com/@ArtifyStudiosInc" class="social-link" aria-label="youtube"><i class="bi bi-youtube"></i></a>
+                                    <a href="https://www.artstation.com/juancit0w" class="social-link" aria-label="ArtStation"><i class="bi bi-palette"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Navegación</h5>
+                            <ul class="footer-links">
+                                <li><a href="index.html#home">Inicio</a></li>
+                                <li><a href="index.html#about">Sobre Mí</a></li>
+                                <li><a href="proyectos.html">Proyectos</a></li>
+                                <li><a href="cursos.html">Artify Basics</a></li>
+                                <li><a href="artify-development.html">Artify Development</a></li>
+                                <li><a href="index.html#clients">Clientes</a></li>
+                                <li><a href="index.html#contact">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Servicios</h5>
+                            <ul class="footer-links">
+                                <li><a href="proyectos.html">Modelado 3D</a></li>
+                                <li><a href="proyectos.html">Animación</a></li>
+                                <li><a href="proyectos.html">Efectos Visuales</a></li>
+                                <li><a href="proyectos.html">Renderizado</a></li>
+                                <li><a href="proyectos.html">Arquitectura 3D</a></li>
+                                <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="copyright"><p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="politicaprivacidad.html">Política de Privacidad</a>
+                            <a href="Docs/Términos de Uso de Artify Studios.pdf">Términos de Uso</a>
+                            <a href="#cookies">Cookies</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bg-elements">
+            <div class="bg-element bg-element-1"></div>
+            <div class="bg-element bg-element-2"></div>
+            <div class="bg-element bg-element-3"></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Script/script.js"></script>
+
+    <script>
+    // Cierra el menú móvil al hacer clic en un enlace
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+                }
+            });
+        });
+    });
+    </script>
+<script>
+    // La oferta de Retícula Pro termina el 30 de noviembre de 2026 (hora Colombia)
+    (function () {
+        var fin = new Date('2026-11-30T23:59:59-05:00');
+        if (new Date() > fin) {
+            document.getElementById('reticulaPrice').textContent = '$60.000';
+            document.getElementById('reticulaOld').style.display = 'none';
+            document.getElementById('reticulaOffer').style.display = 'none';
+        }
+    })();
+    </script>
+</body>
+</html>

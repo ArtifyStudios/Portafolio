@@ -16,15 +16,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 
     <!-- More Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="currency-converter.css">
     <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
 
+
+    <!-- Popup promo Artify Retícula Pro -->
+    <style>
+        .promo-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            display: flex; align-items: center; justify-content: center; padding: 1rem;
+            background: rgba(0, 0, 0, 0.55);
+            -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+            opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease;
+        }
+        .promo-overlay.is-open { opacity: 1; visibility: visible; }
+
+        .promo-modal {
+            position: relative; width: 100%; max-width: 440px; max-height: 94vh; overflow-y: auto;
+            background: #000; color: #fff; text-align: center;
+            border: 1px solid rgba(139, 92, 246, .45); border-radius: 28px;
+            padding: 2.25rem 2rem 1.5rem;
+            box-shadow: 0 0 60px rgba(99, 102, 241, .35), 0 25px 60px rgba(0, 0, 0, .7);
+            transform: translateY(20px) scale(.96); transition: transform .35s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .promo-overlay.is-open .promo-modal { transform: translateY(0) scale(1); }
+
+        .promo-close {
+            position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%;
+            border: 0; background: rgba(255, 255, 255, .12); color: #fff; font-size: 1rem; line-height: 1;
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s ease;
+        }
+        .promo-close:hover { background: rgba(255, 255, 255, .25); }
+
+        .promo-logo { width: 170px; height: auto; margin: 0 auto 1rem; display: block; border-radius: 0; }
+        .promo-logo:hover { transform: none; }
+
+        .promo-badge {
+            display: inline-flex; align-items: center; gap: .4rem; background: #f59e0b; color: #1a1200;
+            font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+            padding: .4rem .9rem; border-radius: 999px;
+        }
+        .promo-price { font-size: 3.4rem; font-weight: 800; line-height: 1.1; margin-top: .6rem;
+            background: linear-gradient(135deg, #4f8cff, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .promo-old { color: #9ca3af; text-decoration: line-through; font-size: 1.05rem; margin-left: .4rem; -webkit-text-fill-color: #9ca3af; }
+        .promo-sub { font-size: .8rem; font-weight: 600; letter-spacing: .3em; color: #6d7cff; text-transform: uppercase; margin-bottom: .5rem; }
+        .promo-text { font-weight: 600; margin-bottom: .5rem; }
+        .promo-date { color: #f59e0b; font-size: .85rem; margin-bottom: 1.25rem; }
+
+        .promo-cta {
+            display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%;
+            padding: .95rem 1rem; border-radius: 12px; border: 0; color: #fff; font-weight: 600; text-decoration: none;
+            background: linear-gradient(90deg, #4f8cff, #8b5cf6);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, .4); transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .promo-cta:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(99, 102, 241, .55); }
+
+        .promo-skip { background: none; border: 0; margin-top: .9rem; color: #9ca3af; text-decoration: underline; font-size: .85rem; cursor: pointer; }
+        .promo-skip:hover { color: #fff; }
+
+        body.promo-open { overflow: hidden; }
+        @media (max-width: 480px) { .promo-modal { padding: 2rem 1.25rem 1.25rem; border-radius: 22px; } .promo-price { font-size: 2.8rem; } }
+        @media (prefers-reduced-motion: reduce) { .promo-overlay, .promo-modal { transition: none; } }
+    </style>
 </head>
 <body>
     <!-- Header/Navbar -->
@@ -44,19 +103,16 @@
                         <a class="nav-link" href="#about">Sobre Mí</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#featured-project">Proyecto Destacado</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#testimonials">Testimonios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Proyectos</a>
+                        <a class="nav-link" href="proyectos.html">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#courses">Artify Basics</a>
+                        <a class="nav-link" href="cursos.html">Artify Basics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Precios</a>
+                        <a class="nav-link" href="artify-development.html">Artify Development</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contacto</a>
@@ -101,7 +157,7 @@
                                             </p>
                                             
                                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                                <a href="#projects" class="btn btn-purple btn-lg">
+                                                <a href="proyectos.html" class="btn btn-purple btn-lg">
                                                     Ver Modelos 3D
                                                     <i class="bi bi-box ms-2"></i>
                                                 </a>
@@ -153,7 +209,7 @@
                                             </p>
                                             
                                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                                <a href="#projects" class="btn btn-purple btn-lg">
+                                                <a href="proyectos.html" class="btn btn-purple btn-lg">
                                                     Ver Animaciones
                                                     <i class="bi bi-play-circle ms-2"></i>
                                                 </a>
@@ -211,7 +267,7 @@
                                             </p>
                                             
                                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                                <a href="#projects" class="btn btn-purple btn-lg">
+                                                <a href="proyectos.html" class="btn btn-purple btn-lg">
                                                     Explorar Productos
                                                     <i class="bi bi-headset ms-2"></i>
                                                 </a>
@@ -266,7 +322,7 @@
                                             </p>
                                             
                                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                                <a href="#projects" class="btn btn-purple btn-lg">
+                                                <a href="proyectos.html" class="btn btn-purple btn-lg">
                                                     Ver Entornos
                                                     <i class="bi bi-building ms-2"></i>
                                                 </a>
@@ -329,7 +385,7 @@
                                             </p>
                                             
                                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                                <a href="#projects" class="btn btn-purple btn-lg">
+                                                <a href="proyectos.html" class="btn btn-purple btn-lg">
                                                     Ver Efectos VFX
                                                     <i class="bi bi-lightning ms-2"></i>
                                                 </a>
@@ -402,7 +458,7 @@
             
             <div class="row align-items-center">
                 <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                    <img src="img/Foto de perfil/foto-perfil.png" 
+                    <img src="img/Foto de perfil/3.png" 
                          alt="Retrato del artista" class="img-fluid rounded shadow">
                 </div>
                 <div class="col-lg-8">
@@ -1361,325 +1417,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="badge bg-outline-purple mb-3">Proyectos</span>
-                <h2 class="display-5 fw-bold">Mi portafolio</h2>
-            </div>
-            
-            <!-- Project Filter -->
-            <div class="text-center mb-5">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-purple active" data-filter="all">Todos</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="3d-models">Modelos 3D</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="props">Props</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="animations">Animaciones</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="environments">Entornos</button>
-                </div>
-            </div>
-            
-            <!-- Projects Grid -->
-            <div class="row" id="projects-grid">
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/Robot-Metalizado-Front-4K.jpg" 
-                             alt="Robot metalizado" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Robot metalizado</h5>
-                            <p class="text-muted mb-4">
-                                Inspirado en el universo de Overwatch 2, este modelo representa un tanque futurista con gran potencia y un diseño imponente. Su apariencia metálica y detalles tecnológicos reflejan fuerza, estrategia y un misterio oculto en su interior.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/robot-wild---artify-studios.jpg" 
-                             alt="Robot salvaje" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Robot salvaje</h5>
-                            <p class="text-muted mb-4">
-                                Inspirado en la película The Wild Robot de DreamWorks, este modelo 3D da vida al entrañable robot que aprende a convivir con la naturaleza. Una representación minimalista y emocional del vínculo entre tecnología y vida salvaje.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/TR24-projects.jpg" 
-                             alt="Tren - TR24" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Tren - TR24</h5>
-                            <p class="text-muted mb-4">
-                               Inspirado en una de las estaciones más emblemáticas de Nueva York, este modelo 3D captura la elegancia clásica de los trenes antiguos. Una pieza que evoca el cine, la historia y la arquitectura urbana, llevada con precisión al mundo digital.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/kamehouse-3D.jpg" 
-                             alt="Kamehouse" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Kamehouse</h5>
-                            <p class="text-muted mb-4">
-                               Recreación fiel y estilizada de la icónica casa del Maestro Roshi. Un homenaje visual cargado de nostalgia, que combina simplicidad y detalle para revivir uno de los escenarios más entrañables del universo Dragon Ball.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/moto-cyberpunk.jpg" 
-                             alt="Moto cyberpunk" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Moto Cyberpunk</h5>
-                            <p class="text-muted mb-4">
-                                Diseño futurista de una motocicleta inspirada en el estilo cyberpunk. El modelo destaca por sus líneas aerodinámicas, acabados metálicos brillantes y una iluminación dramática, ideal para entornos urbanos distópicos o escenas de ciencia ficción.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/carro-f1-completo.jpg" 
-                             alt="Carro-F1" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Modelado 3D</span>
-                            <h5 class="text-white">Carro F1</h5>
-                            <p class="text-muted mb-4">
-                                Diseño estilizado de un monoplaza clásico, inspirado en la elegancia y velocidad de los autos de Fórmula 1 vintage. Un ejercicio de modelado que combina formas aerodinámicas, iluminación dramática y una estética retro-futurista.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/props-armas.jpg" 
-                             alt="props_armas" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Props</span>
-                            <h5 class="text-white">Props de armas</h5>
-                            <p class="text-muted mb-4">
-                                Colección de armas medievales en baja poligonización, ideal para videojuegos y entornos interactivos. Este set incluye espadas, hachas y cuchillas, modeladas con precisión y enfoque en topología limpia para producción en tiempo real.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/props-pociones.jpg" 
-                             alt="props_pociones" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Props</span>
-                            <h5 class="text-white">Props de pociones</h5>
-                            <p class="text-muted mb-4">
-                                Set de frascos de pociones modelados en baja poligonización, ideales para videojuegos de fantasía. Cada diseño combina formas estilizadas y topología optimizada, listos para texturizado o integración en motores 3D.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/props_escenario_medieval.jpg" 
-                             alt="props_medievales" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Props</span>
-                            <h5 class="text-white">Props ambiente medieval</h5>
-                            <p class="text-muted mb-4">
-                                Set de props medievales en baja poligonización, ideales para videojuegos de temática medieval. Cada diseño combina formas estilizadas y topología optimizada, listos para texturizado o integración en motores 3D.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/presentación de personaje aladin - editado.jpg" 
-                             alt="Animación Aladdin" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Animación</span>
-                            <h5 class="text-white">Animación Aladdin</h5>
-                            <p class="text-muted mb-4">
-                                Inspirada en el clásico cuento de Aladdin, esta animación recrea el palacio real y sus personajes en un entorno 3D estilizado. Un viaje visual lleno de magia, atmósfera oriental y narrativa fantástica animada por Artify Studios.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/archivo-personaje-monters.jpg" 
-                             alt="Monsters - Fornite" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Animación</span>
-                            <h5 class="text-white">Animación Monsters - Fortnite</h5>
-                            <p class="text-muted mb-4">
-                                Inspirada en el videojuego de Fortnite, esta animación recrea el estilo caracteristico del juego y sus personajes en un entorno 3D estilizado. Un estilo visual lleno de terror animada por Artify Studios.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/nyther - Artify Studios.jpg" 
-                             alt="Animación de Personaje" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Animación</span>
-                            <h5 class="text-white">Animación de Personaje</h5>
-                            <p class="text-muted mb-4">
-                                Animación de un personaje complejo inspirado en culturas ancestrales, con un rig detallado y movimientos que resaltan su diseño ceremonial. Un trabajo técnico y artístico que explora forma, silueta y expresión corporal en 3D.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/estacion-entera.jpg" 
-                             alt="Estación entera" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Entornos</span>
-                            <h5 class="text-white">Subway 2520</h5>
-                            <p class="text-muted mb-4">
-                                Exploración de un entorno subterráneo futurista, ambientado en una estación de metro del año 2520. El diseño combina estructuras metálicas, iluminación artificial dramática y una atmósfera minimalista.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/Entorno-kamehouse.jpg" 
-                             alt="Kamehouse interior" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Entornos</span>
-                            <h5 class="text-white">Kamehouse interior</h5>
-                            <p class="text-muted mb-4">
-                                Recreación estilizada del interior de la icónica Kamehouse, con atención al detalle en mobiliario, texturas y distribución espacial. Un entorno que evoca nostalgia y calidez, ideal para exploraciones narrativas o fan art en 3D.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/cazaArtify.jpg" 
-                             alt="Casa Cazadora" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Entornos</span>
-                            <h5 class="text-white">Casa Cazadora</h5>
-                            <p class="text-muted mb-4">
-                               Escena de una cabaña elevada en medio de un entorno natural estilizado, envuelto en una atmósfera oscura con iluminación roja dramática. El diseño resalta la tensión entre lo salvaje y lo construido, creando una narrativa visual de vigilancia, aislamiento y supervivencia.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
-                    <div class="project-card">
-                        <img src="img/Imagenes proyecto/The-last-of-us---Artify-Studios.jpg" 
-                             alt="The last of us" class="img-fluid">
-                        <div class="project-overlay">
-                            <span class="badge bg-purple mb-2">Entornos</span>
-                            <h5 class="text-white">The last of us - Seattle</h5>
-                            <p class="text-muted mb-4">
-                              Recreación en 3D de uno de los icónicos escenarios del videojuego The Last of Us Part II, capturando la atmósfera postapocalíptica del acuario de Seattle. Una escena minimalista y simbólica que explora la arquitectura abandonada, el vacío emocional y la memoria de un mundo colapsado.
-                            </p>
-                            <a href="https://www.artstation.com/juancit0w" class="btn btn-sm btn-outline-light">
-                                Ver Detalles
-                                <i class="bi bi-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="https://www.artstation.com/juancit0w" class="btn btn-outline-purple">Ver Más Proyectos</a>
-            </div>
-        </div>
-    </section>
-
 <!-- Clients Section with Perfect Infinite Animation -->
 <section id="clients" class="py-5">
     <div class="container">
@@ -1868,647 +1605,7 @@
     </div>
 </section>
 
-<!-- Courses Section -->
-<section id="courses" class="courses-section py-5">
-    <div class="container">
-        <!-- Section Header -->
-        <div class="text-center mb-5">
-            <span class="badge bg-outline-purple mb-3">Formación Especializada</span>
-            <img src="img/Artify Basics.png" 
-                             class="card-img-top" alt="Artify_Basics">
-            <p class="lead text-muted mx-auto" style="max-width: 700px;">
-                Aprende las técnicas más avanzadas de modelado 3D, animación y efectos visuales 
-                con nuestros cursos especializados impartidos por profesionales de la industria.
-            </p>
-        </div>
-
-        <!-- Course Categories -->
-        <div class="course-categories mb-4">
-            <div class="d-flex justify-content-center flex-wrap gap-2">
-                <button class="btn btn-outline-purple active" data-filter="all">Todos</button>
-                <button class="btn btn-outline-purple" data-filter="modeling">Modelado</button>
-                <button class="btn btn-outline-purple" data-filter="animation">Animación</button>
-                <button class="btn btn-outline-purple" data-filter="vfx">Efectos Visuales</button>
-                <button class="btn btn-outline-purple" data-filter="rendering">Renderizado</button>
-            </div>
-        </div>
-
-        <!-- Courses Grid -->
-        <div class="row g-4">
-            <!-- Course 1 - Modelado 3D Avanzado -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="modeling">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <img src="img/Imagenes cursos/Curso-1.jpg" 
-                             class="card-img-top" alt="Modelado 3D Avanzado">
-                        <div class="course-level">Avanzado</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 40 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">Modelado</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-half text-warning"></i>
-                                <span class="ms-1">4.5</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Modelado 3D Avanzado con Blender</h5>
-                        <p class="card-text">Domina las técnicas avanzadas de modelado orgánico e inorgánico con Blender 3D.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Modelado orgánico avanzado</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Topología y retopología</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Esculpido digital</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Texturizado PBR</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 120 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Actualizado 05/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$199</span>
-                                <span class="old-price text-muted text-decoration-line-through">$299</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></a></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 2 - Animación de Personajes -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="animation">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <img src="img/Imagenes cursos/Curso-2.jpg" 
-                             class="card-img-top" alt="Animación de Personajes">
-                        <div class="course-level">Intermedio</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 35 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">Animación</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <span class="ms-1">4.0</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Animación de Personajes 3D</h5>
-                        <p class="card-text">Aprende a dar vida a tus personajes con técnicas profesionales de animación.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Principios de animación</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Rigging avanzado</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Animación facial</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Captura de movimiento</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 85 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Actualizado 04/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$179</span>
-                                <span class="old-price text-muted text-decoration-line-through">$249</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 3 - Efectos Visuales -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="vfx">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <div class="course-featured">Destacado</div>
-                        <img src="img/Imagenes cursos/Curso-3.jpg" 
-                             class="card-img-top" alt="VFX Profesional">
-                        <div class="course-level">Profesional</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 50 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">VFX</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <span class="ms-1">5.0</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Efectos Visuales para Cine y TV</h5>
-                        <p class="card-text">Crea efectos visuales de nivel cinematográfico con las herramientas más avanzadas.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Composición digital</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Simulación de partículas</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Integración 3D-2D</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Efectos de destrucción</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 210 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Actualizado 05/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$249</span>
-                                <span class="old-price text-muted text-decoration-line-through">$399</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 4 - Renderizado Fotorrealista -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="rendering">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <img src="img/Imagenes cursos/Curso-4.jpg" 
-                             class="card-img-top" alt="Renderizado Fotorrealista">
-                        <div class="course-level">Intermedio-Avanzado</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 30 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">Renderizado</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-half text-warning"></i>
-                                <span class="ms-1">4.7</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Renderizado Fotorrealista con Arnold</h5>
-                        <p class="card-text">Domina el arte del renderizado fotorrealista para arquitectura y visualización de productos.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Iluminación avanzada</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Materiales PBR</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Optimización de escenas</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Post-procesado</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 95 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Actualizado 03/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$159</span>
-                                <span class="old-price text-muted text-decoration-line-through">$229</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 5 - Modelado Arquitectónico -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="modeling">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <img src="img/Imagenes cursos/Curso-5.jpg" 
-                             class="card-img-top" alt="Modelado Arquitectónico">
-                        <div class="course-level">Intermedio</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 25 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">Modelado</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <span class="ms-1">4.2</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Modelado Arquitectónico 3D</h5>
-                        <p class="card-text">Aprende a crear modelos arquitectónicos detallados para visualización y presentación.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Modelado paramétrico</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Detalles arquitectónicos</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Entornos urbanos</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Presentación de proyectos</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 75 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Actualizado 02/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$149</span>
-                                <span class="old-price text-muted text-decoration-line-through">$199</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 6 - Animación Avanzada -->
-            <div class="col-md-6 col-lg-4 course-item" data-category="animation">
-                <div class="card course-card h-100">
-                    <div class="course-image-wrapper">
-                        <div class="course-featured">Nuevo</div>
-                        <img src="img/Imagenes cursos/Curso-6.jpg" 
-                             class="card-img-top" alt="Animación Avanzada">
-                        <div class="course-level">Avanzado</div>
-                        <div class="course-duration">
-                            <i class="bi bi-clock"></i> 45 horas
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-purple">Animación</span>
-                            <div class="course-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-half text-warning"></i>
-                                <span class="ms-1">4.8</span>
-                            </div>
-                        </div>
-                        <h5 class="card-title">Animación Avanzada para Videojuegos</h5>
-                        <p class="card-text">Especialízate en animación para videojuegos con técnicas de última generación.</p>
-                        
-                        <!-- What You'll Learn -->
-                        <div class="what-youll-learn mt-3">
-                            <h6 class="fw-bold"><i class="bi bi-journal-check me-2"></i>Lo que aprenderás:</h6>
-                            <ul class="list-unstyled course-features">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Animación procedural</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Sistemas de blend</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Ragdoll physics</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Optimización para tiempo real</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Course Info -->
-                        <div class="course-info mt-3">
-                            <div class="d-flex justify-content-between text-muted small">
-                                <span><i class="bi bi-people-fill me-1"></i> 65 estudiantes</span>
-                                <span><i class="bi bi-calendar3 me-1"></i> Nuevo 05/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pt-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="course-price">
-                                <span class="new-price fw-bold">$229</span>
-                                <span class="old-price text-muted text-decoration-line-through">$349</span>
-                            </div>
-                            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple">
-                                Ver Curso <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- View All Courses Button -->
-        <div class="text-center mt-5">
-            <a href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-lg btn-outline-purple">
-                Ver Todos los Cursos <i class="bi bi-grid-3x3-gap ms-2"></i>
-            </a>
-        </div>
-
-        <!-- Course Benefits -->
-        <div class="course-benefits mt-5 pt-4">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="benefit-card text-center p-4">
-                        <div class="benefit-icon mb-3">
-                            <i class="bi bi-laptop text-purple" style="font-size: 2.5rem;"></i>
-                        </div>
-                        <h5>Acceso de por vida</h5>
-                        <p class="text-muted">Accede a los cursos cuando quieras, desde cualquier dispositivo, sin límite de tiempo.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="benefit-card text-center p-4">
-                        <div class="benefit-icon mb-3">
-                            <i class="bi bi-person-video3 text-purple" style="font-size: 2.5rem;"></i>
-                        </div>
-                        <h5>Instructores expertos</h5>
-                        <p class="text-muted">Aprende de profesionales con años de experiencia en la industria del 3D y VFX.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="benefit-card text-center p-4">
-                        <div class="benefit-icon mb-3">
-                            <i class="bi bi-award text-purple" style="font-size: 2.5rem;"></i>
-                        </div>
-                        <h5>Certificado oficial</h5>
-                        <p class="text-muted">Obtén un certificado al completar el curso que podrás añadir a tu CV y LinkedIn.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="badge bg-outline-purple mb-3">Precios</span>
-                <h2 class="display-5 fw-bold">Servicios y Tarifas</h2>
-                <p class="lead text-muted">Soluciones personalizadas para cada necesidad y presupuesto</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title">Modelado 3D</h3>
-                            <p class="text-muted">Creación de modelos 3D detallados y realistas</p>
-                            <div class="h2 mb-4">Desde $150 USD</div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Modelado de alta calidad
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Texturizado profesional
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    2 revisiones incluidas
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Entrega en múltiples formatos
-                                </li>
-                            </ul>
-                            <a href="#contact" class="btn btn-purple w-100">Solicitar Presupuesto</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm border-purple">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div>
-                                    <h3 class="card-title">Animación 3D</h3>
-                                    <p class="text-muted">Animaciones dinámicas para dar vida a tus ideas</p>
-                                </div>
-                                <span class="badge bg-purple">Más Popular</span>
-                            </div>
-                            <div class="h2 mb-4">Desde $1,000 - $3,000 USD</div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Animación personalizada
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Efectos visuales
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    3 revisiones incluidas
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Renderizado en alta definición
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Banda sonora básica
-                                </li>
-                            </ul>
-                            <a href="#contact" class="btn btn-purple w-100">Solicitar Presupuesto</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title">Proyectos VR/AR</h3>
-                            <p class="text-muted">Experiencias inmersivas en realidad virtual y aumentada</p>
-                            <div class="h2 mb-4">Desde $2,000 USD</div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Desarrollo completo
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Interactividad avanzada
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Optimización multiplataforma
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Asesoramiento técnico
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check-circle-fill text-purple me-2"></i>
-                                    Soporte post-entrega
-                                </li>
-                            </ul>
-                            <a href="#contact" class="btn btn-purple w-100">Solicitar Presupuesto</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sección Conversor de Monedas -->
-<section id="currency-converter" class="section bg-light py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="text-center mb-5">
-          <span class="badge bg-purple text-white mb-3">Herramienta</span>
-          <h2 class="display-5 fw-bold">Conversor de Monedas</h2>
-          <p class="lead text-muted">Convierte fácilmente entre diferentes divisas para tus proyectos internacionales</p>
-        </div>
-
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-          <div class="card-body p-4 p-lg-5">
-            <div class="row g-4">
-              <div class="col-md-6">
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="amount" placeholder="Cantidad" value="100">
-                  <label for="amount">Cantidad</label>
-                </div>
-                
-                <div class="form-floating mb-3">
-                  <select class="form-select" id="from-currency">
-                    <option value="USD" selected>Dólar Estadounidense (USD)</option>
-                    <option value="COP">Peso Colombiano (COP)</option>
-                    <option value="CNY">Yuan Chino (CNY)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="GBP">Libra Esterlina (GBP)</option>
-                  </select>
-                  <label for="from-currency">De</label>
-                </div>
-                
-                <button id="swap-btn" class="btn btn-outline-purple w-100 mb-3">
-                  <i class="bi bi-arrow-down-up"></i> Intercambiar Monedas
-                </button>
-                
-                <div class="form-floating">
-                  <select class="form-select" id="to-currency">
-                    <option value="USD">Dólar Estadounidense (USD)</option>
-                    <option value="COP" selected>Peso Colombiano (COP)</option>
-                    <option value="CNY">Yuan Chino (CNY)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="GBP">Libra Esterlina (GBP)</option>
-                  </select>
-                  <label for="to-currency">A</label>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="result-container h-100 d-flex flex-column justify-content-center align-items-center bg-light rounded-4 p-4">
-                  <div class="text-center">
-                    <p class="text-muted mb-2">Resultado</p>
-                    <h3 id="result" class="display-6 fw-bold text-purple mb-0">Calculando...</h3>
-                    <p id="exchange-rate" class="text-muted mt-2">1 USD = 4,000 COP</p>
-                    <div class="mt-3">
-                      <span id="last-updated" class="badge bg-light text-muted">Actualizado: Calculando...</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="mt-4">
-              <div class="d-flex justify-content-between align-items-center">
-                <button id="convert-btn" class="btn btn-purple px-4 py-2">
-                  <i class="bi bi-currency-exchange me-2"></i> Convertir
-                </button>
-                <div class="text-end">
-                  <button id="add-to-favorites" class="btn btn-sm btn-outline-purple">
-                    <i class="bi bi-star me-1"></i> Guardar
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div id="favorites-container" class="mt-4 d-none">
-              <h6 class="text-muted mb-3">Conversiones Guardadas</h6>
-              <div id="favorites-list" class="list-group">
-                <!-- Las conversiones guardadas se mostrarán aquí -->
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center mt-4">
-          <p class="small text-muted">Los tipos de cambio se actualizan periódicamente. Última actualización: <span id="footer-last-updated">Calculando...</span></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-            
-            <div class="text-center mt-4">
-                <p class="text-muted">
-                    ¿Necesitas un servicio personalizado? 
-                    <a href="#contact" class="text-purple text-decoration-none fw-medium">Contáctame</a> 
-                    para discutir tu proyecto.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Contact Section -->
+<!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
@@ -2541,7 +1638,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-0">Teléfono</h6>
-                                <span class="text-muted">+57 318 429 4655</span>
+                                <span class="text-muted">+57 3167051399</span>
                             </div>
                         </div>
                         
@@ -2601,9 +1698,9 @@
                 <!-- Brand Section -->
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-brand">
-                        <div class="footer-logo mb-3">
-                            <span class="logo-text">Artify Studios</span>
-                        </div>
+                        <a class="navbar-brand d-flex align-items-center" href="#home">
+                             <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                         </a>
                         <p class="footer-description">
                             Creando mundos digitales extraordinarios con precisión técnica y visión artística. 
                             Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
@@ -2640,8 +1737,9 @@
                         <ul class="footer-links">
                             <li><a href="#home">Inicio</a></li>
                             <li><a href="#about">Sobre Mí</a></li>
-                            <li><a href="#projects">Proyectos</a></li>
-                            <li><a href="#courses">Artify Basics</a></li>
+                            <li><a href="proyectos.html">Proyectos</a></li>
+                            <li><a href="cursos.html">Artify Basics</a></li>
+                            <li><a href="artify-development.html">Artify Development</a></li>
                             <li><a href="#clients">Clientes</a></li>
                             <li><a href="#contact">Contacto</a></li>
                         </ul>
@@ -2653,110 +1751,13 @@
                     <div class="footer-section">
                         <h5 class="footer-title">Servicios</h5>
                         <ul class="footer-links">
-                            <li><a href="#projects">Modelado 3D</a></li>
-                            <li><a href="#projects">Animación</a></li>
-                            <li><a href="#projects">Efectos Visuales</a></li>
-                            <li><a href="#projects">Renderizado</a></li>
-                            <li><a href="#projects">Arquitectura 3D</a></li>
+                            <li><a href="proyectos.html">Modelado 3D</a></li>
+                            <li><a href="proyectos.html">Animación</a></li>
+                            <li><a href="proyectos.html">Efectos Visuales</a></li>
+                            <li><a href="proyectos.html">Renderizado</a></li>
+                            <li><a href="proyectos.html">Arquitectura 3D</a></li>
                             <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
                         </ul>
-                    </div>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-section">
-                        <h5 class="footer-title">Contacto</h5>
-                        
-                        <!-- Contact Items -->
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="bi bi-geo-alt"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">Ubicación</span>
-                                    <span class="contact-value">Armenia, Quindío - Colombia</span>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:byartifycol@gmail.com" class="contact-value">byartifycol@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="bi bi-phone"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">Teléfono</span>
-                                    <a href="tel:+34123456789" class="contact-value">+57 3184294655</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="bi bi-clock"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">Horario</span>
-                                    <span class="contact-value">Lun - Vie: 8:00Am - 5:00Pm</span>
-                                    <span class="contact-value">Sab - Fes: 2:00Pm - 5:00Pm</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Newsletter -->
-                        <div class="newsletter-section mt-4">
-                            <h6 class="newsletter-title">Newsletter</h6>
-                            <p class="newsletter-description">Recibe las últimas noticias y proyectos</p>
-                            <form class="newsletter-form">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Tu email" required>
-                                    <button class="btn btn-purple" type="submit">
-                                        <i class="bi bi-send"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer Stats -->
-    <div class="footer-stats">
-        <div class="container">
-            <div class="row g-3">
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <div class="stat-number">+50</div>
-                        <div class="stat-label">Proyectos</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <div class="stat-number">+40</div>
-                        <div class="stat-label">Clientes</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <div class="stat-number">+2</div>
-                        <div class="stat-label">Años de Experiencia</div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item">
-                        <div class="stat-number">+3</div>
-                        <div class="stat-label">Países</div>
                     </div>
                 </div>
             </div>
@@ -2769,12 +1770,12 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="copyright">
-                        <p>&copy; 2025 Artify Studios. Todos los derechos reservados.</p>
+                        <p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="footer-bottom-links">
-                        <a href="Docs/Política de Privacidad de Artify Studios.pdf">Política de Privacidad</a>
+                        <a href="politicaprivacidad.html">Política de Privacidad</a>
                         <a href="Docs/Términos de Uso de Artify Studios.pdf">Términos de Uso</a>
                         <a href="#cookies">Cookies</a>
                     </div>
@@ -2792,6 +1793,23 @@
         <div class="bg-element bg-element-3"></div>
     </div>
 </footer>
+
+    <!-- Popup promo Artify Retícula Pro -->
+    <div class="promo-overlay" id="promoOverlay" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-hidden="true">
+        <div class="promo-modal">
+            <button type="button" class="promo-close" id="promoClose" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+            <img src="img/reticula-pro-logo.webp" class="promo-logo" alt="Artify Retícula Pro">
+            <span class="promo-badge"><i class="bi bi-lightning-charge-fill"></i> Tiempo limitado</span>
+            <div class="promo-price">$45.000<span class="promo-old">$60.000</span></div>
+            <div class="promo-sub">Precio de oferta</div>
+            <p class="promo-text" id="promoTitle">en la licencia de Artify Retícula Pro</p>
+            <div class="promo-date"><i class="bi bi-calendar-check-fill me-1"></i>Válido hasta el 30 de noviembre</div>
+            <a href="artify-development.html#reticula-pro" class="promo-cta" id="promoCta">
+                <i class="bi bi-tag-fill"></i> Obtener descuento
+            </a>
+            <button type="button" class="promo-skip" id="promoSkip">Ahora no</button>
+        </div>
+    </div>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -2883,5 +1901,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+    <script>
+    // Popup promo Retícula Pro: aparece al entrar, se puede cerrar y lleva a la oferta
+    (function () {
+        var fin = new Date('2026-11-30T23:59:59-05:00');
+        if (new Date() > fin) return;                       // oferta vencida: no se muestra
+        try { if (sessionStorage.getItem('promoReticulaCerrada')) return; } catch (e) {}
+
+        var overlay = document.getElementById('promoOverlay');
+        var cta = document.getElementById('promoCta');
+        var lastFocus = null;
+
+        function open() {
+            lastFocus = document.activeElement;
+            overlay.classList.add('is-open');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('promo-open');
+            setTimeout(function () { cta.focus(); }, 350);
+        }
+        function close() {
+            overlay.classList.remove('is-open');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('promo-open');
+            try { sessionStorage.setItem('promoReticulaCerrada', '1'); } catch (e) {}
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        document.getElementById('promoClose').addEventListener('click', close);
+        document.getElementById('promoSkip').addEventListener('click', close);
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) close(); });
+        cta.addEventListener('click', function () {
+            try { sessionStorage.setItem('promoReticulaCerrada', '1'); } catch (e) {}
+        });
+
+        window.addEventListener('load', function () { setTimeout(open, 1200); });
+    })();
+    </script>
 </body>
 </html>

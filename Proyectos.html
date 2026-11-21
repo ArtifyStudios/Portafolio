@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Proyectos - Artify Studios</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- More Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
+
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured-project">Proyecto Destacado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#testimonials">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="proyectos.html" aria-current="page">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#courses">Artify Basics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Page -->
+    <section id="projects" class="projects-page py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-outline-purple mb-3">Proyectos</span>
+                <h1 class="display-5 fw-bold">Mi portafolio</h1>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                    Modelos 3D, props, animaciones y entornos creados en Artify Studios.
+                </p>
+            </div>
+
+            <!-- Project Filter -->
+            <div class="text-center mb-5">
+                <div class="btn-group flex-wrap" role="group">
+                    <button type="button" class="btn btn-outline-purple active" data-filter="all">Todos</button>
+                    <button type="button" class="btn btn-outline-purple" data-filter="3d-models">Modelos 3D</button>
+                    <button type="button" class="btn btn-outline-purple" data-filter="props">Props</button>
+                    <button type="button" class="btn btn-outline-purple" data-filter="animations">Animaciones</button>
+                    <button type="button" class="btn btn-outline-purple" data-filter="environments">Entornos</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="row" id="projects-grid">
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="robot-metalizado">
+                        <img src="img/Imagenes proyecto/Robot-Metalizado-Front-4K.jpg" 
+                             alt="Robot metalizado" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Robot metalizado</h5>
+                            <p class="text-muted mb-4">
+                                Inspirado en el universo de Overwatch 2, este modelo representa un tanque futurista con gran potencia y un diseño imponente. Su apariencia metálica y detalles tecnológicos reflejan fuerza, estrategia y un misterio oculto en su interior.
+                            </p>
+                            <a href="proyecto.html?id=robot-metalizado" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="robot-salvaje">
+                        <img src="img/Imagenes proyecto/robot-wild---artify-studios.jpg" 
+                             alt="Robot salvaje" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Robot salvaje</h5>
+                            <p class="text-muted mb-4">
+                                Inspirado en la película The Wild Robot de DreamWorks, este modelo 3D da vida al entrañable robot que aprende a convivir con la naturaleza. Una representación minimalista y emocional del vínculo entre tecnología y vida salvaje.
+                            </p>
+                            <a href="proyecto.html?id=robot-salvaje" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="tren-tr24">
+                        <img src="img/Imagenes proyecto/TR24-projects.jpg" 
+                             alt="Tren - TR24" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Tren - TR24</h5>
+                            <p class="text-muted mb-4">
+                               Inspirado en una de las estaciones más emblemáticas de Nueva York, este modelo 3D captura la elegancia clásica de los trenes antiguos. Una pieza que evoca el cine, la historia y la arquitectura urbana, llevada con precisión al mundo digital.
+                            </p>
+                            <a href="proyecto.html?id=tren-tr24" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="kamehouse">
+                        <img src="img/Imagenes proyecto/kamehouse-3D.jpg" 
+                             alt="Kamehouse" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Kamehouse</h5>
+                            <p class="text-muted mb-4">
+                               Recreación fiel y estilizada de la icónica casa del Maestro Roshi. Un homenaje visual cargado de nostalgia, que combina simplicidad y detalle para revivir uno de los escenarios más entrañables del universo Dragon Ball.
+                            </p>
+                            <a href="proyecto.html?id=kamehouse" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="moto-cyberpunk">
+                        <img src="img/Imagenes proyecto/moto-cyberpunk.jpg" 
+                             alt="Moto cyberpunk" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Moto Cyberpunk</h5>
+                            <p class="text-muted mb-4">
+                                Diseño futurista de una motocicleta inspirada en el estilo cyberpunk. El modelo destaca por sus líneas aerodinámicas, acabados metálicos brillantes y una iluminación dramática, ideal para entornos urbanos distópicos o escenas de ciencia ficción.
+                            </p>
+                            <a href="proyecto.html?id=moto-cyberpunk" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="3d-models">
+                    <div class="project-card" data-project="carro-f1">
+                        <img src="img/Imagenes proyecto/carro-f1-completo.jpg" 
+                             alt="Carro-F1" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Modelado 3D</span>
+                            <h5 class="text-white">Carro F1</h5>
+                            <p class="text-muted mb-4">
+                                Diseño estilizado de un monoplaza clásico, inspirado en la elegancia y velocidad de los autos de Fórmula 1 vintage. Un ejercicio de modelado que combina formas aerodinámicas, iluminación dramática y una estética retro-futurista.
+                            </p>
+                            <a href="proyecto.html?id=carro-f1" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
+                    <div class="project-card" data-project="props-armas">
+                        <img src="img/Imagenes proyecto/props-armas.jpg" 
+                             alt="props_armas" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Props</span>
+                            <h5 class="text-white">Props de armas</h5>
+                            <p class="text-muted mb-4">
+                                Colección de armas medievales en baja poligonización, ideal para videojuegos y entornos interactivos. Este set incluye espadas, hachas y cuchillas, modeladas con precisión y enfoque en topología limpia para producción en tiempo real.
+                            </p>
+                            <a href="proyecto.html?id=props-armas" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
+                    <div class="project-card" data-project="props-pociones">
+                        <img src="img/Imagenes proyecto/props-pociones.jpg" 
+                             alt="props_pociones" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Props</span>
+                            <h5 class="text-white">Props de pociones</h5>
+                            <p class="text-muted mb-4">
+                                Set de frascos de pociones modelados en baja poligonización, ideales para videojuegos de fantasía. Cada diseño combina formas estilizadas y topología optimizada, listos para texturizado o integración en motores 3D.
+                            </p>
+                            <a href="proyecto.html?id=props-pociones" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="props">
+                    <div class="project-card" data-project="props-ambiente-medieval">
+                        <img src="img/Imagenes proyecto/props_escenario_medieval.jpg" 
+                             alt="props_medievales" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Props</span>
+                            <h5 class="text-white">Props ambiente medieval</h5>
+                            <p class="text-muted mb-4">
+                                Set de props medievales en baja poligonización, ideales para videojuegos de temática medieval. Cada diseño combina formas estilizadas y topología optimizada, listos para texturizado o integración en motores 3D.
+                            </p>
+                            <a href="proyecto.html?id=props-ambiente-medieval" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
+                    <div class="project-card" data-project="animacion-aladdin">
+                        <img src="img/Imagenes proyecto/presentación de personaje aladin - editado.jpg" 
+                             alt="Animación Aladdin" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Animación</span>
+                            <h5 class="text-white">Animación Aladdin</h5>
+                            <p class="text-muted mb-4">
+                                Inspirada en el clásico cuento de Aladdin, esta animación recrea el palacio real y sus personajes en un entorno 3D estilizado. Un viaje visual lleno de magia, atmósfera oriental y narrativa fantástica animada por Artify Studios.
+                            </p>
+                            <a href="proyecto.html?id=animacion-aladdin" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
+                    <div class="project-card" data-project="monsters-fortnite">
+                        <img src="img/Imagenes proyecto/archivo-personaje-monters.jpg" 
+                             alt="Monsters - Fornite" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Animación</span>
+                            <h5 class="text-white">Animación Monsters - Fortnite</h5>
+                            <p class="text-muted mb-4">
+                                Inspirada en el videojuego de Fortnite, esta animación recrea el estilo caracteristico del juego y sus personajes en un entorno 3D estilizado. Un estilo visual lleno de terror animada por Artify Studios.
+                            </p>
+                            <a href="proyecto.html?id=monsters-fortnite" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="animations">
+                    <div class="project-card" data-project="animacion-personaje">
+                        <img src="img/Imagenes proyecto/nyther - Artify Studios.jpg" 
+                             alt="Animación de Personaje" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Animación</span>
+                            <h5 class="text-white">Animación de Personaje</h5>
+                            <p class="text-muted mb-4">
+                                Animación de un personaje complejo inspirado en culturas ancestrales, con un rig detallado y movimientos que resaltan su diseño ceremonial. Un trabajo técnico y artístico que explora forma, silueta y expresión corporal en 3D.
+                            </p>
+                            <a href="proyecto.html?id=animacion-personaje" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
+                    <div class="project-card" data-project="subway-2520">
+                        <img src="img/Imagenes proyecto/estacion-entera.jpg" 
+                             alt="Estación entera" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Entornos</span>
+                            <h5 class="text-white">Subway 2520</h5>
+                            <p class="text-muted mb-4">
+                                Exploración de un entorno subterráneo futurista, ambientado en una estación de metro del año 2520. El diseño combina estructuras metálicas, iluminación artificial dramática y una atmósfera minimalista.
+                            </p>
+                            <a href="proyecto.html?id=subway-2520" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
+                    <div class="project-card" data-project="kamehouse-interior">
+                        <img src="img/Imagenes proyecto/Entorno-kamehouse.jpg" 
+                             alt="Kamehouse interior" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Entornos</span>
+                            <h5 class="text-white">Kamehouse interior</h5>
+                            <p class="text-muted mb-4">
+                                Recreación estilizada del interior de la icónica Kamehouse, con atención al detalle en mobiliario, texturas y distribución espacial. Un entorno que evoca nostalgia y calidez, ideal para exploraciones narrativas o fan art en 3D.
+                            </p>
+                            <a href="proyecto.html?id=kamehouse-interior" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
+                    <div class="project-card" data-project="casa-cazadora">
+                        <img src="img/Imagenes proyecto/cazaArtify.jpg" 
+                             alt="Casa Cazadora" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Entornos</span>
+                            <h5 class="text-white">Casa Cazadora</h5>
+                            <p class="text-muted mb-4">
+                               Escena de una cabaña elevada en medio de un entorno natural estilizado, envuelto en una atmósfera oscura con iluminación roja dramática. El diseño resalta la tensión entre lo salvaje y lo construido, creando una narrativa visual de vigilancia, aislamiento y supervivencia.
+                            </p>
+                            <a href="proyecto.html?id=casa-cazadora" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="environments">
+                    <div class="project-card" data-project="the-last-of-us-seattle">
+                        <img src="img/Imagenes proyecto/The-last-of-us---Artify-Studios.jpg" 
+                             alt="The last of us" class="img-fluid">
+                        <div class="project-overlay">
+                            <span class="badge bg-purple mb-2">Entornos</span>
+                            <h5 class="text-white">The last of us - Seattle</h5>
+                            <p class="text-muted mb-4">
+                              Recreación en 3D de uno de los icónicos escenarios del videojuego The Last of Us Part II, capturando la atmósfera postapocalíptica del acuario de Seattle. Una escena minimalista y simbólica que explora la arquitectura abandonada, el vacío emocional y la memoria de un mundo colapsado.
+                            </p>
+                            <a href="proyecto.html?id=the-last-of-us-seattle" class="btn btn-sm btn-outline-light">
+                                Ver Detalles
+                                <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="text-center mt-4">
+                <a href="https://www.artstation.com/juancit0w" class="btn btn-outline-purple">Ver Más Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+<footer class="modern-footer">
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Section -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                             <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                         </a>
+                        <p class="footer-description">
+                            Creando mundos digitales extraordinarios con precisión técnica y visión artística. 
+                            Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
+                        </p>
+                        
+                        <!-- Social Media -->
+                        <div class="social-links">
+                            <h6 class="social-title">Síguenos</h6>
+                            <div class="social-icons">
+                                <a href="https://wa.link/yu2avl" class="social-link" aria-label="whatsapp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                                <a href="https://www.instagram.com/juancitow_/" class="social-link" aria-label="instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="https://discord.gg/U8vkHZRyqS" class="social-link" aria-label="discord">
+                                    <i class="bi bi-discord"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@ArtifyStudiosInc" class="social-link" aria-label="youtube">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                                <a href="https://www.artstation.com/juancit0w" class="social-link" aria-label="ArtStation">
+                                    <i class="bi bi-palette"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h5 class="footer-title">Navegación</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html#home">Inicio</a></li>
+                            <li><a href="index.html#about">Sobre Mí</a></li>
+                            <li><a href="proyectos.html">Proyectos</a></li>
+                            <li><a href="index.html#courses">Artify Basics</a></li>
+                            <li><a href="index.html#clients">Clientes</a></li>
+                            <li><a href="index.html#contact">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h5 class="footer-title">Servicios</h5>
+                        <ul class="footer-links">
+                            <li><a href="proyectos.html">Modelado 3D</a></li>
+                            <li><a href="proyectos.html">Animación</a></li>
+                            <li><a href="proyectos.html">Efectos Visuales</a></li>
+                            <li><a href="proyectos.html">Renderizado</a></li>
+                            <li><a href="proyectos.html">Arquitectura 3D</a></li>
+                            <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h5 class="footer-title">Contacto</h5>
+                        
+                        <!-- Contact Items -->
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Ubicación</span>
+                                    <span class="contact-value">Armenia, Quindío - Colombia</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:byartifycol@gmail.com" class="contact-value">byartifycol@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Teléfono</span>
+                                    <a href="tel:+34123456789" class="contact-value">+57 3184294655</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Horario</span>
+                                    <span class="contact-value">Lun - Vie: 8:00Am - 5:00Pm</span>
+                                    <span class="contact-value">Sab - Fes: 2:00Pm - 5:00Pm</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Newsletter -->
+                        <div class="newsletter-section mt-4">
+                            <h6 class="newsletter-title">Newsletter</h6>
+                            <p class="newsletter-description">Recibe las últimas noticias y proyectos</p>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Tu email" required>
+                                    <button class="btn btn-purple" type="submit">
+                                        <i class="bi bi-send"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Stats -->
+    <div class="footer-stats">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">+50</div>
+                        <div class="stat-label">Proyectos</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">+40</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">+2</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">+3</div>
+                        <div class="stat-label">Países</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="copyright">
+                        <p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-bottom-links">
+                        <a href="politicaprivacidad.html">Política de Privacidad</a>
+                        <a href="Docs/Términos de Uso de Artify Studios.pdf">Términos de Uso</a>
+                        <a href="index.html#cookies">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <!-- Footer Background Elements -->
+    <div class="footer-bg-elements">
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        <div class="bg-element bg-element-3"></div>
+    </div>
+</footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="Script/script.js"></script>
+
+    <script>
+    // Cierra el menú móvil al elegir un enlace
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+                }
+            });
+        });
+
+        // Permite abrir un filtro desde la URL: proyectos.html#props
+        const map = { modelos: '3d-models', props: 'props', animaciones: 'animations', entornos: 'environments' };
+        const wanted = map[location.hash.replace('#', '')];
+        if (wanted) {
+            const btn = document.querySelector('[data-filter="' + wanted + '"]');
+            if (btn) btn.click();
+        }
+    });
+    </script>
+</body>
+</html>
