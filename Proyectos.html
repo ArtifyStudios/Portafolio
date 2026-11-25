@@ -24,6 +24,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
 
+    <style>
+        /* ===== Buscador y filtros de proyectos ===== */
+        .dev-search { max-width: 640px; margin: 0 auto 1.25rem; position: relative; }
+        .dev-search .bi-search { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+        .dev-search input {
+            width: 100%; background: #111; color: var(--text-primary); border: 1px solid var(--border-color);
+            border-radius: 30px; padding: .85rem 3rem .85rem 2.9rem; font-size: 1rem; outline: none;
+            transition: border-color .25s ease, box-shadow .25s ease;
+        }
+        .dev-search input::placeholder { color: var(--text-muted); }
+        .dev-search input:focus { border-color: var(--purple-primary); box-shadow: 0 0 0 3px rgba(217, 72, 95, .2); }
+        .dev-search input::-webkit-search-cancel-button { display: none; }
+        .dev-search .clear-btn {
+            position: absolute; right: .6rem; top: 50%; transform: translateY(-50%);
+            width: 34px; height: 34px; border: 0; border-radius: 50%; background: transparent; color: var(--text-muted);
+            display: none; align-items: center; justify-content: center; cursor: pointer;
+        }
+        .dev-search .clear-btn:hover { color: #fff; background: rgba(255, 255, 255, .08); }
+        .dev-search.has-text .clear-btn { display: flex; }
+
+        .software-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-bottom: 1rem; }
+        .sw-chip {
+            display: inline-flex; align-items: center; gap: .45rem; cursor: pointer;
+            background: transparent; color: var(--purple-light); border: 1px solid var(--purple-primary);
+            border-radius: 30px; padding: .4rem .95rem; font-size: .88rem; font-weight: 500; transition: all .25s ease;
+        }
+        .sw-chip:hover, .sw-chip.active { background: var(--purple-primary); color: #fff; }
+        .sw-chip .count { font-size: .72rem; opacity: .85; background: rgba(255, 255, 255, .15); border-radius: 10px; padding: 0 .45rem; }
+        .sw-chip:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+        .results-info { text-align: center; color: var(--text-muted); font-size: .9rem; margin-bottom: 1.75rem; min-height: 1.4em; }
+        .project-item.is-hidden { display: none !important; }
+        .no-results { text-align: center; background: #111; border: 1px dashed var(--border-color); border-radius: 16px; padding: 3rem 1.5rem; margin-bottom: 1.5rem; }
+        .no-results i { font-size: 2.5rem; color: var(--purple-light); }
+        .no-results h4 { color: var(--text-primary); margin: .75rem 0 .5rem; }
+        .no-results p { color: var(--text-muted); max-width: 480px; margin: 0 auto 1.25rem; }
+    </style>
 </head>
 <body>
     <!-- Header/Navbar -->
@@ -32,36 +69,23 @@
             <a class="navbar-brand d-flex align-items-center" href="index.html#home">
                 <img src="img/Artify Studios blanco.png" alt="Artify Studios">
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">Sobre Mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#featured-project">Proyecto Destacado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#testimonials">Testimonios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="proyectos.html" aria-current="page">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#courses">Artify Basics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Contacto</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="proyectos.html"  aria-current="page">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artify-development.html">Artify Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Projects Page -->
     <section id="projects" class="projects-page py-5">
         <div class="container">
@@ -73,16 +97,14 @@
                 </p>
             </div>
 
-            <!-- Project Filter -->
-            <div class="text-center mb-5">
-                <div class="btn-group flex-wrap" role="group">
-                    <button type="button" class="btn btn-outline-purple active" data-filter="all">Todos</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="3d-models">Modelos 3D</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="props">Props</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="animations">Animaciones</button>
-                    <button type="button" class="btn btn-outline-purple" data-filter="environments">Entornos</button>
-                </div>
+            <!-- Buscador y filtros -->
+            <div class="dev-search" id="projSearch">
+                <i class="bi bi-search"></i>
+                <input type="search" id="projectSearch" placeholder="Busca un proyecto, categoría o palabra…" aria-label="Buscar proyectos" autocomplete="off">
+                <button type="button" class="clear-btn" id="clearProjSearch" aria-label="Borrar búsqueda"><i class="bi bi-x-lg"></i></button>
             </div>
+            <div class="software-filters" id="categoryFilters" role="group" aria-label="Filtrar por categoría"></div>
+            <div class="results-info" id="projResultsInfo" role="status" aria-live="polite"></div>
 
             <!-- Projects Grid -->
             <div class="row" id="projects-grid">
@@ -377,11 +399,14 @@
                     </div>
                 </div>
             </div>
-            
 
-            <div class="text-center mt-4">
-                <a href="https://www.artstation.com/juancit0w" class="btn btn-outline-purple">Ver Más Proyectos</a>
+            <div class="no-results" id="projNoResults" hidden>
+                <i class="bi bi-search-heart"></i>
+                <h4 id="projNoTitle">No encontramos proyectos</h4>
+                <p id="projNoText">Prueba con otra palabra o elige otra categoría.</p>
+                <a href="https://www.artstation.com/juancit0w" class="btn btn-purple" target="_blank" rel="noopener"><i class="bi bi-palette me-2"></i>Ver más en ArtStation</a>
             </div>
+
         </div>
     </section>
 
@@ -568,8 +593,9 @@
                 <div class="col-md-6">
                     <div class="footer-bottom-links">
                         <a href="politicaprivacidad.html">Política de Privacidad</a>
-                        <a href="Docs/Términos de Uso de Artify Studios.pdf">Términos de Uso</a>
-                        <a href="index.html#cookies">Cookies</a>
+                        <a href="terminos-de-uso.html">Términos de Uso</a>
+                        <a href="cookies.html">Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
                     </div>
                 </div>
             </div>
@@ -603,15 +629,89 @@
                 }
             });
         });
-
-        // Permite abrir un filtro desde la URL: proyectos.html#props
-        const map = { modelos: '3d-models', props: 'props', animaciones: 'animations', entornos: 'environments' };
-        const wanted = map[location.hash.replace('#', '')];
-        if (wanted) {
-            const btn = document.querySelector('[data-filter="' + wanted + '"]');
-            if (btn) btn.click();
-        }
     });
+
+    // ===== Buscador y filtro por categoría =====
+    (function () {
+        // key = valor de data-category en cada proyecto; hash = para abrir un filtro desde la URL (proyectos.html#props)
+        var CATEGORIES = [
+            { key: '3d-models',    label: 'Modelos 3D',  hash: 'modelos' },
+            { key: 'props',        label: 'Props',       hash: 'props' },
+            { key: 'animations',   label: 'Animaciones', hash: 'animaciones' },
+            { key: 'environments', label: 'Entornos',    hash: 'entornos' }
+        ];
+
+        var norm = function (t) { return (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim(); };
+        var txt = function (el, sel) { var n = el.querySelector(sel); return n ? n.textContent : ''; };
+
+        var items = Array.prototype.slice.call(document.querySelectorAll('#projects-grid .project-item'));
+        var input = document.getElementById('projectSearch');
+        var box = document.getElementById('projSearch');
+        var chipsBox = document.getElementById('categoryFilters');
+        var info = document.getElementById('projResultsInfo');
+        var empty = document.getElementById('projNoResults');
+        var current = 'all';
+
+        // Índice de búsqueda tomado del propio contenido de cada tarjeta
+        var data = items.map(function (el) {
+            var cat = el.getAttribute('data-category') || '';
+            var catLabel = (CATEGORIES.filter(function (c) { return c.key === cat; })[0] || {}).label || '';
+            var text = norm([txt(el, 'h5'), txt(el, 'p'), txt(el, '.badge'), catLabel, el.getAttribute('data-keywords')].join(' '));
+            return { el: el, cat: cat, text: text, flat: text.replace(/ /g, '') };
+        });
+
+        var chips = [{ key: 'all', label: 'Todos', count: data.length }].concat(CATEGORIES.map(function (c) {
+            return { key: c.key, label: c.label, count: data.filter(function (d) { return d.cat === c.key; }).length };
+        }));
+        chipsBox.innerHTML = chips.map(function (c) {
+            return '<button type="button" class="sw-chip' + (c.key === 'all' ? ' active' : '') + '" data-key="' + c.key + '" aria-pressed="' + (c.key === 'all') + '">' +
+                c.label + ' <span class="count">' + c.count + '</span></button>';
+        }).join('');
+
+        function label(key) { var f = chips.filter(function (c) { return c.key === key; })[0]; return f ? f.label : key; }
+
+        function apply() {
+            var q = norm(input.value), qFlat = q.replace(/ /g, ''), words = q ? q.split(' ') : [];
+            var shown = 0;
+            data.forEach(function (d) {
+                var okCat = current === 'all' || d.cat === current;
+                var okText = !q || words.every(function (w) { return d.text.indexOf(w) > -1; }) || d.flat.indexOf(qFlat) > -1;
+                var ok = okCat && okText;
+                d.el.classList.toggle('is-hidden', !ok);
+                if (ok) shown++;
+            });
+
+            box.classList.toggle('has-text', !!input.value);
+            chipsBox.querySelectorAll('.sw-chip').forEach(function (b) {
+                var on = b.dataset.key === current;
+                b.classList.toggle('active', on); b.setAttribute('aria-pressed', on);
+            });
+
+            empty.hidden = shown > 0;
+            if (!shown) {
+                var cat = current !== 'all' ? label(current) : '';
+                document.getElementById('projNoTitle').textContent = cat && !q ? 'Aún no hay proyectos en ' + cat : 'No encontramos proyectos';
+                document.getElementById('projNoText').textContent = cat && !q
+                    ? 'Pronto subiremos nuevos trabajos a esta categoría. Mientras tanto, puedes ver más en ArtStation.'
+                    : 'Prueba con otra palabra o elige otra categoría. Hay más trabajos en ArtStation.';
+            }
+            info.textContent = (q || current !== 'all') && shown ? shown + (shown === 1 ? ' proyecto encontrado' : ' proyectos encontrados') : '';
+        }
+
+        input.addEventListener('input', apply);
+        input.addEventListener('keydown', function (e) { if (e.key === 'Escape') { input.value = ''; apply(); } });
+        document.getElementById('clearProjSearch').addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
+        chipsBox.addEventListener('click', function (e) {
+            var b = e.target.closest('.sw-chip'); if (!b) return;
+            current = (current === b.dataset.key && b.dataset.key !== 'all') ? 'all' : b.dataset.key;
+            apply();
+        });
+
+        // Abre un filtro desde la URL: proyectos.html#props
+        var wanted = CATEGORIES.filter(function (c) { return c.hash === location.hash.replace('#', ''); })[0];
+        if (wanted) current = wanted.key;
+        apply();
+    })();
     </script>
 </body>
 </html>

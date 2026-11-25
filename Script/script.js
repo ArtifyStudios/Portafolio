@@ -879,7 +879,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
     
     // Course View All Button Effect
-    const viewAllButton = document.querySelector('.btn-outline-purple.btn-lg');
+    const viewAllButton = document.querySelector('.courses-section .btn-outline-purple.btn-lg');
     
     if (viewAllButton) {
         viewAllButton.addEventListener('mouseenter', function() {

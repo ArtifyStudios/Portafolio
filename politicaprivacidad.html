@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Política de Privacidad | Artify Studios</title>
+    <meta name="description" content="Cómo Artify Studios recopila, usa y protege tus datos personales, y cómo puedes ejercer tus derechos.">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- More Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
+    <style>
+        .legal-hero { padding: 80px 0 40px; text-align: center; background: radial-gradient(ellipse at top, rgba(217, 72, 95, 0.18), transparent 60%), #000; }
+        .legal-hero h1 { font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .75rem; }
+        .legal-hero .updated { color: var(--text-muted); font-size: .9rem; }
+        .legal-wrap { background: #000; padding: 20px 0 90px; }
+
+        .legal-side { position: sticky; top: 90px; background: #111; border: 1px solid var(--border-color); border-radius: 14px; padding: .75rem; }
+        .legal-side h6 { color: var(--text-muted); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin: .5rem .75rem .6rem; }
+        .legal-side a { display: flex; align-items: center; gap: .7rem; padding: .65rem .75rem; border-radius: 10px; color: var(--text-secondary); text-decoration: none; font-size: .95rem; transition: all .2s ease; }
+        .legal-side a i { width: 1.1rem; text-align: center; color: var(--purple-primary); }
+        .legal-side a:hover { background: rgba(255, 255, 255, .05); color: #fff; }
+        .legal-side a.active { background: rgba(217, 72, 95, .14); color: var(--purple-light); font-weight: 600; }
+
+        .legal-content { color: var(--text-secondary); line-height: 1.8; }
+        .legal-intro { font-size: 1.05rem; color: var(--text-secondary); }
+        .legal-toc { background: #111; border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem 1.5rem; margin: 1.5rem 0 2rem; }
+        .legal-toc h6 { color: var(--text-primary); font-weight: 600; margin-bottom: .75rem; }
+        .legal-toc ol { margin: 0; padding-left: 1.25rem; columns: 2; column-gap: 2rem; }
+        .legal-toc li { margin-bottom: .3rem; break-inside: avoid; }
+        .legal-toc a { color: var(--text-muted); text-decoration: none; font-size: .93rem; }
+        .legal-toc a:hover { color: var(--purple-light); }
+        .legal-content section { scroll-margin-top: 90px; }
+        .legal-content h2 { color: var(--text-primary); font-size: 1.35rem; font-weight: 600; margin: 2.25rem 0 .75rem; }
+        .legal-content h2 .n { color: var(--purple-primary); margin-right: .4rem; }
+        .legal-content p { margin-bottom: 1rem; }
+        .legal-content ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+        .legal-content li { margin-bottom: .5rem; }
+        .legal-content strong { color: var(--text-primary); }
+        .legal-content a { color: var(--purple-light); }
+        .legal-note { background: rgba(217, 72, 95, .08); border: 1px solid rgba(217, 72, 95, .35); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+        .legal-note p { margin: 0; }
+        .ph { background: rgba(250, 204, 21, .15); border: 1px dashed rgba(250, 204, 21, .7); color: #fde68a; border-radius: 6px; padding: 0 .4rem; }
+        .legal-table-wrap { overflow-x: auto; margin: 1rem 0 1.25rem; border: 1px solid var(--border-color); border-radius: 12px; }
+        .legal-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+        .legal-table th, .legal-table td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border-color); vertical-align: top; font-size: .93rem; }
+        .legal-table th { background: #111; color: var(--text-primary); font-weight: 600; }
+        .legal-table tr:last-child td { border-bottom: none; }
+        .legal-other { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .legal-other a { display: flex; align-items: center; gap: .6rem; background: #111; border: 1px solid var(--border-color); border-radius: 12px; padding: .85rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all .25s ease; }
+        .legal-other a:hover { border-color: var(--purple-primary); color: #fff; transform: translateY(-2px); }
+        .legal-other i { color: var(--purple-primary); }
+        @media (max-width: 991.98px) {
+            .legal-side { position: static; display: flex; flex-wrap: wrap; gap: .25rem; margin-bottom: 1.5rem; }
+            .legal-side h6 { width: 100%; }
+            .legal-toc ol { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artify-development.html">Artify Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="legal-hero">
+        <div class="container">
+            <span class="badge bg-outline-purple mb-3">Legal</span>
+            <h1>Política de Privacidad</h1>
+            <p class="updated mb-0">Última actualización: 25 de noviembre de 2026</p>
+        </div>
+    </header>
+
+    <main class="legal-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <nav class="legal-side" aria-label="Documentos legales">
+                        <h6>Documentos legales</h6>
+                        <a href="politicaprivacidad.html" class="active" aria-current="page"><i class="fa-solid fa-shield-halved"></i>Política de Privacidad</a><a href="terminos-de-uso.html"><i class="fa-solid fa-file-contract"></i>Términos de Uso</a><a href="cookies.html"><i class="fa-solid fa-cookie-bite"></i>Cookies</a><a href="aviso-legal.html"><i class="fa-solid fa-scale-balanced"></i>Aviso Legal</a>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <article class="legal-content">
+                        <p class="legal-intro">En Artify Studios valoramos tu privacidad. Esta política explica qué datos personales tratamos, para qué los usamos y cuáles son tus derechos, en cumplimiento de la normativa colombiana de protección de datos.</p>
+                        <div class="legal-toc">
+                            <h6><i class="bi bi-list-ul me-2"></i>Contenido</h6>
+                            <ol><li><a href="#s1">Responsable del tratamiento</a></li><li><a href="#s2">Datos que recopilamos</a></li><li><a href="#s3">Para qué usamos tus datos</a></li><li><a href="#s4">Autorización</a></li><li><a href="#s5">Con quién compartimos tus datos</a></li><li><a href="#s6">Transferencia y transmisión internacional</a></li><li><a href="#s7">Tus derechos como titular</a></li><li><a href="#s8">Cómo ejercer tus derechos</a></li><li><a href="#s9">Seguridad y conservación</a></li><li><a href="#s10">Menores de edad</a></li><li><a href="#s11">Enlaces a sitios de terceros</a></li><li><a href="#s12">Cambios a esta política</a></li></ol>
+                        </div>
+
+                    <section id="s1">
+                        <h2><span class="n">1.</span>Responsable del tratamiento</h2>
+                        <p><strong>Artify Studios</strong> (en adelante «Artify», «nosotros») es la responsable del tratamiento de los datos personales que se recopilan a través de este sitio web, de acuerdo con la Ley Estatutaria 1581 de 2012 y sus decretos reglamentarios.</p>
+                        <p>Puedes contactarnos en <a href="mailto:byartifycol@gmail.com">byartifycol@gmail.com</a> o por <a href="https://wa.link/yu2avl" target="_blank" rel="noopener">WhatsApp</a>.</p>
+                    </section>
+
+                    <section id="s2">
+                        <h2><span class="n">2.</span>Datos que recopilamos</h2>
+                        <ul>
+                            <li><strong>Datos de contacto:</strong> nombre, correo electrónico, número de teléfono o WhatsApp y el contenido de tus mensajes, cuando nos escribes por WhatsApp, correo o redes sociales.</li>
+                            <li><strong>Datos de compra:</strong> la información necesaria para gestionar la adquisición de un curso o un script. Los pagos de los cursos se gestionan a través de Patreon y la compra de scripts se coordina por WhatsApp. Este sitio web no procesa pagos ni almacena datos de tarjetas bancarias.</li>
+                            <li><strong>Datos del certificado:</strong> nombre del participante, curso, fecha de emisión e identificador de verificación, cuando se emite un certificado de finalización.</li>
+                            <li><strong>Datos técnicos:</strong> al visitar el sitio, los servicios de terceros que entregan sus recursos (tipografías y librerías) pueden recibir tu dirección IP, tipo de navegador y dispositivo. Más detalle en nuestra <a href="cookies.html">Política de Cookies</a>.</li>
+                        </ul>
+                        <p>No solicitamos datos sensibles ni datos de menores de edad.</p>
+                    </section>
+
+                    <section id="s3">
+                        <h2><span class="n">3.</span>Para qué usamos tus datos</h2>
+                        <ul>
+                            <li>Responder tus consultas y solicitudes de cotización.</li>
+                            <li>Gestionar compras, el acceso a los cursos y la entrega de scripts.</li>
+                            <li>Emitir y permitir la verificación de certificados.</li>
+                            <li>Brindarte soporte sobre los cursos y herramientas.</li>
+                            <li>Informarte sobre novedades de cursos y scripts, únicamente si lo has autorizado.</li>
+                            <li>Cumplir obligaciones legales y atender requerimientos de autoridades competentes.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s4">
+                        <h2><span class="n">4.</span>Autorización</h2>
+                        <p>Al facilitarnos tus datos por cualquiera de nuestros canales, nos autorizas a tratarlos para las finalidades descritas en esta política. Puedes revocar tu autorización o solicitar la supresión de tus datos en cualquier momento, salvo que exista un deber legal o contractual que nos obligue a conservarlos.</p>
+                    </section>
+
+                    <section id="s5">
+                        <h2><span class="n">5.</span>Con quién compartimos tus datos</h2>
+                        <p>No vendemos ni alquilamos tus datos personales. Solo los compartimos con los proveedores necesarios para prestarte el servicio:</p>
+                        <ul>
+                            <li><strong>Patreon</strong>, para el pago y el acceso a los cursos.</li>
+                            <li><strong>WhatsApp (Meta)</strong> y servicios de correo electrónico, para comunicarnos contigo.</li>
+                            <li>Proveedores de alojamiento web y de entrega de contenido, para mantener el sitio en funcionamiento.</li>
+                            <li>Autoridades, cuando la ley lo exija.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s6">
+                        <h2><span class="n">6.</span>Transferencia y transmisión internacional</h2>
+                        <p>Algunos de estos proveedores están ubicados o almacenan información fuera de Colombia. En esos casos procuramos que el tratamiento se haga con estándares de seguridad adecuados y conforme a la normativa aplicable.</p>
+                    </section>
+
+                    <section id="s7">
+                        <h2><span class="n">7.</span>Tus derechos como titular</h2>
+                        <p>De acuerdo con la Ley 1581 de 2012, puedes:</p>
+                        <ul>
+                            <li>Conocer, actualizar y rectificar tus datos personales.</li>
+                            <li>Solicitar prueba de la autorización que nos diste.</li>
+                            <li>Ser informado sobre el uso que hemos dado a tus datos.</li>
+                            <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+                            <li>Revocar la autorización y/o solicitar la supresión de tus datos, cuando no se respeten los principios y garantías legales.</li>
+                            <li>Acceder gratuitamente a tus datos personales que hayan sido objeto de tratamiento.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s8">
+                        <h2><span class="n">8.</span>Cómo ejercer tus derechos</h2>
+                        <p>Escríbenos a <a href="mailto:byartifycol@gmail.com">byartifycol@gmail.com</a> con el asunto «Datos personales», indicando tu nombre, un medio de contacto y qué solicitas. Es posible que te pidamos verificar tu identidad.</p>
+                        <p>Responderemos las consultas en un máximo de 10 días hábiles (prorrogables por 5 días hábiles más) y los reclamos en un máximo de 15 días hábiles (prorrogables por 8 días hábiles más), conforme a los artículos 14 y 15 de la Ley 1581 de 2012. Si no estás conforme con la respuesta, puedes acudir a la SIC.</p>
+                    </section>
+
+                    <section id="s9">
+                        <h2><span class="n">9.</span>Seguridad y conservación</h2>
+                        <p>Aplicamos medidas razonables para proteger tus datos contra accesos no autorizados, pérdida o alteración. Conservamos la información durante el tiempo necesario para cumplir las finalidades descritas y las obligaciones legales. Los datos de certificados se conservan mientras sea necesario para poder verificarlos.</p>
+                    </section>
+
+                    <section id="s10">
+                        <h2><span class="n">10.</span>Menores de edad</h2>
+                        <p>Este sitio no está dirigido a menores de edad y no recopilamos sus datos de forma intencional sin la autorización de sus padres o representantes legales. Si crees que un menor nos ha enviado datos, escríbenos para eliminarlos.</p>
+                    </section>
+
+                    <section id="s11">
+                        <h2><span class="n">11.</span>Enlaces a sitios de terceros</h2>
+                        <p>Este sitio enlaza a plataformas externas como Patreon, WhatsApp, Discord, YouTube, Instagram y ArtStation. Cada una tiene su propia política de privacidad y Artify no es responsable del tratamiento de datos que ellas realicen.</p>
+                    </section>
+
+                    <section id="s12">
+                        <h2><span class="n">12.</span>Cambios a esta política</h2>
+                        <p>Podemos actualizar esta política para reflejar cambios legales o en nuestros servicios. Publicaremos la versión vigente en esta página con su fecha de actualización. Si tienes preguntas, escríbenos a <a href="mailto:byartifycol@gmail.com">byartifycol@gmail.com</a>.</p>
+                    </section>
+
+                        <div class="legal-other"><a href="terminos-de-uso.html"><i class="fa-solid fa-file-contract"></i>Términos de Uso</a><a href="cookies.html"><i class="fa-solid fa-cookie-bite"></i>Cookies</a><a href="aviso-legal.html"><i class="fa-solid fa-scale-balanced"></i>Aviso Legal</a></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-brand">
+                            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                            </a>
+                            <p class="footer-description">
+                                Creando mundos digitales extraordinarios con precisión técnica y visión artística.
+                                Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
+                            </p>
+                            <div class="social-links">
+                                <h6 class="social-title">Síguenos</h6>
+                                <div class="social-icons">
+                                    <a href="https://wa.link/yu2avl" class="social-link" aria-label="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/juancitow_/" class="social-link" aria-label="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://discord.gg/U8vkHZRyqS" class="social-link" aria-label="discord"><i class="bi bi-discord"></i></a>
+                                    <a href="https://www.youtube.com/@ArtifyStudiosInc" class="social-link" aria-label="youtube"><i class="bi bi-youtube"></i></a>
+                                    <a href="https://www.artstation.com/juancit0w" class="social-link" aria-label="ArtStation"><i class="bi bi-palette"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Navegación</h5>
+                            <ul class="footer-links">
+                                <li><a href="index.html#home">Inicio</a></li>
+                                <li><a href="index.html#about">Sobre Mí</a></li>
+                                <li><a href="proyectos.html">Proyectos</a></li>
+                                <li><a href="cursos.html">Artify Basics</a></li>
+                                <li><a href="artify-development.html">Artify Development</a></li>
+                                <li><a href="index.html#clients">Clientes</a></li>
+                                <li><a href="index.html#contact">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Servicios</h5>
+                            <ul class="footer-links">
+                                <li><a href="proyectos.html">Modelado 3D</a></li>
+                                <li><a href="proyectos.html">Animación</a></li>
+                                <li><a href="proyectos.html">Efectos Visuales</a></li>
+                                <li><a href="proyectos.html">Renderizado</a></li>
+                                <li><a href="proyectos.html">Arquitectura 3D</a></li>
+                                <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="copyright"><p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="politicaprivacidad.html">Política de Privacidad</a>
+                            <a href="terminos-de-uso.html">Términos de Uso</a>
+                            <a href="cookies.html">Cookies</a>
+                            <a href="aviso-legal.html">Aviso Legal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bg-elements">
+            <div class="bg-element bg-element-1"></div>
+            <div class="bg-element bg-element-2"></div>
+            <div class="bg-element bg-element-3"></div>
+        </div>
+    </footer>
+
+    <!-- Modal certificado -->
+    <div class="modal fade" id="certModal" tabindex="-1" aria-label="Certificado de ejemplo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/certificado-ejemplo.webp" alt="Ejemplo de certificado de finalización de Artify Basics" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Script/script.js"></script>
+    <script>
+    // Cierra el menú móvil al hacer clic en un enlace
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+            });
+        });
+    });
+    </script>
+</body>
+</html>

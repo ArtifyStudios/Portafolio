@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Aviso Legal | Artify Studios</title>
+    <meta name="description" content="Información legal del sitio web de Artify Studios: titular, propiedad intelectual, responsabilidad y legislación aplicable.">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- More Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
+    <style>
+        .legal-hero { padding: 80px 0 40px; text-align: center; background: radial-gradient(ellipse at top, rgba(217, 72, 95, 0.18), transparent 60%), #000; }
+        .legal-hero h1 { font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .75rem; }
+        .legal-hero .updated { color: var(--text-muted); font-size: .9rem; }
+        .legal-wrap { background: #000; padding: 20px 0 90px; }
+
+        .legal-side { position: sticky; top: 90px; background: #111; border: 1px solid var(--border-color); border-radius: 14px; padding: .75rem; }
+        .legal-side h6 { color: var(--text-muted); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin: .5rem .75rem .6rem; }
+        .legal-side a { display: flex; align-items: center; gap: .7rem; padding: .65rem .75rem; border-radius: 10px; color: var(--text-secondary); text-decoration: none; font-size: .95rem; transition: all .2s ease; }
+        .legal-side a i { width: 1.1rem; text-align: center; color: var(--purple-primary); }
+        .legal-side a:hover { background: rgba(255, 255, 255, .05); color: #fff; }
+        .legal-side a.active { background: rgba(217, 72, 95, .14); color: var(--purple-light); font-weight: 600; }
+
+        .legal-content { color: var(--text-secondary); line-height: 1.8; }
+        .legal-intro { font-size: 1.05rem; color: var(--text-secondary); }
+        .legal-toc { background: #111; border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem 1.5rem; margin: 1.5rem 0 2rem; }
+        .legal-toc h6 { color: var(--text-primary); font-weight: 600; margin-bottom: .75rem; }
+        .legal-toc ol { margin: 0; padding-left: 1.25rem; columns: 2; column-gap: 2rem; }
+        .legal-toc li { margin-bottom: .3rem; break-inside: avoid; }
+        .legal-toc a { color: var(--text-muted); text-decoration: none; font-size: .93rem; }
+        .legal-toc a:hover { color: var(--purple-light); }
+        .legal-content section { scroll-margin-top: 90px; }
+        .legal-content h2 { color: var(--text-primary); font-size: 1.35rem; font-weight: 600; margin: 2.25rem 0 .75rem; }
+        .legal-content h2 .n { color: var(--purple-primary); margin-right: .4rem; }
+        .legal-content p { margin-bottom: 1rem; }
+        .legal-content ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+        .legal-content li { margin-bottom: .5rem; }
+        .legal-content strong { color: var(--text-primary); }
+        .legal-content a { color: var(--purple-light); }
+        .legal-note { background: rgba(217, 72, 95, .08); border: 1px solid rgba(217, 72, 95, .35); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+        .legal-note p { margin: 0; }
+        .ph { background: rgba(250, 204, 21, .15); border: 1px dashed rgba(250, 204, 21, .7); color: #fde68a; border-radius: 6px; padding: 0 .4rem; }
+        .legal-table-wrap { overflow-x: auto; margin: 1rem 0 1.25rem; border: 1px solid var(--border-color); border-radius: 12px; }
+        .legal-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+        .legal-table th, .legal-table td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border-color); vertical-align: top; font-size: .93rem; }
+        .legal-table th { background: #111; color: var(--text-primary); font-weight: 600; }
+        .legal-table tr:last-child td { border-bottom: none; }
+        .legal-other { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .legal-other a { display: flex; align-items: center; gap: .6rem; background: #111; border: 1px solid var(--border-color); border-radius: 12px; padding: .85rem 1rem; color: var(--text-secondary); text-decoration: none; transition: all .25s ease; }
+        .legal-other a:hover { border-color: var(--purple-primary); color: #fff; transform: translateY(-2px); }
+        .legal-other i { color: var(--purple-primary); }
+        @media (max-width: 991.98px) {
+            .legal-side { position: static; display: flex; flex-wrap: wrap; gap: .25rem; margin-bottom: 1.5rem; }
+            .legal-side h6 { width: 100%; }
+            .legal-toc ol { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artify-development.html">Artify Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="legal-hero">
+        <div class="container">
+            <span class="badge bg-outline-purple mb-3">Legal</span>
+            <h1>Aviso Legal</h1>
+            <p class="updated mb-0">Última actualización: 25 de noviembre de 2026</p>
+        </div>
+    </header>
+
+    <main class="legal-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <nav class="legal-side" aria-label="Documentos legales">
+                        <h6>Documentos legales</h6>
+                        <a href="politicaprivacidad.html"><i class="fa-solid fa-shield-halved"></i>Política de Privacidad</a><a href="terminos-de-uso.html"><i class="fa-solid fa-file-contract"></i>Términos de Uso</a><a href="cookies.html"><i class="fa-solid fa-cookie-bite"></i>Cookies</a><a href="aviso-legal.html" class="active" aria-current="page"><i class="fa-solid fa-scale-balanced"></i>Aviso Legal</a>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <article class="legal-content">
+                        <p class="legal-intro">Este aviso identifica al titular del sitio web y recoge las condiciones generales de acceso, propiedad intelectual y responsabilidad.</p>
+                        <div class="legal-toc">
+                            <h6><i class="bi bi-list-ul me-2"></i>Contenido</h6>
+                            <ol><li><a href="#s1">Titular del sitio web</a></li><li><a href="#s2">Objeto</a></li><li><a href="#s3">Condiciones de acceso y uso</a></li><li><a href="#s4">Propiedad intelectual e industrial</a></li><li><a href="#s5">Marcas y obras de terceros</a></li><li><a href="#s6">Responsabilidad</a></li><li><a href="#s7">Protección de datos y cookies</a></li><li><a href="#s8">Comercio electrónico y consumidores</a></li><li><a href="#s9">Legislación aplicable y jurisdicción</a></li><li><a href="#s10">Contacto</a></li></ol>
+                        </div>
+
+                    <section id="s1">
+                        <h2><span class="n">1.</span>Titular del sitio web</h2>
+                        <ul>
+                            <li><strong>Nombre comercial:</strong> Artify Studios</li>
+                            <li><strong>Razón social / titular:</strong> <span class="ph">[Completar]</span></li>
+                            <li><strong>NIT o documento de identidad:</strong> <span class="ph">[Completar]</span></li>
+                            <li><strong>Domicilio:</strong> <span class="ph">[Completar ciudad y país]</span></li>
+                            <li><strong>Correo electrónico:</strong> <a href="mailto:byartifycol@gmail.com">byartifycol@gmail.com</a></li>
+                            <li><strong>WhatsApp:</strong> <a href="https://wa.link/yu2avl" target="_blank" rel="noopener">wa.link/yu2avl</a></li>
+                        </ul>
+                    </section>
+
+                    <section id="s2">
+                        <h2><span class="n">2.</span>Objeto</h2>
+                        <p>Este sitio web presenta el portafolio de Artify Studios y da información sobre sus servicios de modelado 3D, animación y efectos visuales, los cursos de Artify Basics y los scripts de Artify Development.</p>
+                    </section>
+
+                    <section id="s3">
+                        <h2><span class="n">3.</span>Condiciones de acceso y uso</h2>
+                        <p>El acceso al sitio es libre y gratuito, sin perjuicio del costo de los cursos y scripts de pago. Te comprometes a usarlo de forma lícita y conforme a la buena fe, sin dañar su funcionamiento ni los derechos de terceros. El uso de los productos de pago se rige por los <a href="terminos-de-uso.html">Términos de Uso</a>.</p>
+                    </section>
+
+                    <section id="s4">
+                        <h2><span class="n">4.</span>Propiedad intelectual e industrial</h2>
+                        <p>Los contenidos del sitio (textos, imágenes, videos, modelos 3D, diseños, código, logotipos y las marcas Artify Studios, Artify Basics y Artify Development) son propiedad de su titular o se usan con autorización, y están protegidos por la normativa colombiana y andina de derechos de autor y propiedad industrial (entre otras, la Ley 23 de 1982 y la Decisión Andina 351 de 1993).</p>
+                        <p>Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización previa y por escrito.</p>
+                    </section>
+
+                    <section id="s5">
+                        <h2><span class="n">5.</span>Marcas y obras de terceros</h2>
+                        <p>Los nombres de programas y marcas mencionados, como Autodesk Maya, Adobe Photoshop, Blender, ZBrush, Patreon o ArtStation, pertenecen a sus respectivos dueños. Los proyectos inspirados en videojuegos, películas u otras obras son trabajos creativos sin afiliación ni respaldo de sus titulares.</p>
+                    </section>
+
+                    <section id="s6">
+                        <h2><span class="n">6.</span>Responsabilidad</h2>
+                        <p>Procuramos que la información del sitio sea exacta y esté actualizada, pero no garantizamos que esté libre de errores ni que el sitio funcione sin interrupciones. Artify Studios no se responsabiliza por los contenidos ni las políticas de los sitios de terceros enlazados.</p>
+                    </section>
+
+                    <section id="s7">
+                        <h2><span class="n">7.</span>Protección de datos y cookies</h2>
+                        <p>El tratamiento de datos personales se describe en la <a href="politicaprivacidad.html">Política de Privacidad</a> y el uso de cookies y recursos de terceros, en la <a href="cookies.html">Política de Cookies</a>.</p>
+                    </section>
+
+                    <section id="s8">
+                        <h2><span class="n">8.</span>Comercio electrónico y consumidores</h2>
+                        <p>La información de productos, precios (en pesos colombianos, COP) y condiciones de compra se presenta conforme a la Ley 527 de 1999 sobre comercio electrónico y al Estatuto del Consumidor (Ley 1480 de 2011). Los derechos que la ley te reconoce como consumidor no se ven afectados por este aviso.</p>
+                    </section>
+
+                    <section id="s9">
+                        <h2><span class="n">9.</span>Legislación aplicable y jurisdicción</h2>
+                        <p>Este aviso se rige por las leyes de la República de Colombia. Cualquier controversia se someterá a las autoridades competentes de Colombia, sin perjuicio de los derechos del consumidor.</p>
+                    </section>
+
+                    <section id="s10">
+                        <h2><span class="n">10.</span>Contacto</h2>
+                        <p>Para cualquier consulta sobre este aviso, escríbenos a <a href="mailto:byartifycol@gmail.com">byartifycol@gmail.com</a>.</p>
+                    </section>
+
+                        <div class="legal-other"><a href="politicaprivacidad.html"><i class="fa-solid fa-shield-halved"></i>Política de Privacidad</a><a href="terminos-de-uso.html"><i class="fa-solid fa-file-contract"></i>Términos de Uso</a><a href="cookies.html"><i class="fa-solid fa-cookie-bite"></i>Cookies</a></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-brand">
+                            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                            </a>
+                            <p class="footer-description">
+                                Creando mundos digitales extraordinarios con precisión técnica y visión artística.
+                                Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
+                            </p>
+                            <div class="social-links">
+                                <h6 class="social-title">Síguenos</h6>
+                                <div class="social-icons">
+                                    <a href="https://wa.link/yu2avl" class="social-link" aria-label="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/juancitow_/" class="social-link" aria-label="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://discord.gg/U8vkHZRyqS" class="social-link" aria-label="discord"><i class="bi bi-discord"></i></a>
+                                    <a href="https://www.youtube.com/@ArtifyStudiosInc" class="social-link" aria-label="youtube"><i class="bi bi-youtube"></i></a>
+                                    <a href="https://www.artstation.com/juancit0w" class="social-link" aria-label="ArtStation"><i class="bi bi-palette"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Navegación</h5>
+                            <ul class="footer-links">
+                                <li><a href="index.html#home">Inicio</a></li>
+                                <li><a href="index.html#about">Sobre Mí</a></li>
+                                <li><a href="proyectos.html">Proyectos</a></li>
+                                <li><a href="cursos.html">Artify Basics</a></li>
+                                <li><a href="artify-development.html">Artify Development</a></li>
+                                <li><a href="index.html#clients">Clientes</a></li>
+                                <li><a href="index.html#contact">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Servicios</h5>
+                            <ul class="footer-links">
+                                <li><a href="proyectos.html">Modelado 3D</a></li>
+                                <li><a href="proyectos.html">Animación</a></li>
+                                <li><a href="proyectos.html">Efectos Visuales</a></li>
+                                <li><a href="proyectos.html">Renderizado</a></li>
+                                <li><a href="proyectos.html">Arquitectura 3D</a></li>
+                                <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="copyright"><p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="politicaprivacidad.html">Política de Privacidad</a>
+                            <a href="terminos-de-uso.html">Términos de Uso</a>
+                            <a href="cookies.html">Cookies</a>
+                            <a href="aviso-legal.html">Aviso Legal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bg-elements">
+            <div class="bg-element bg-element-1"></div>
+            <div class="bg-element bg-element-2"></div>
+            <div class="bg-element bg-element-3"></div>
+        </div>
+    </footer>
+
+    <!-- Modal certificado -->
+    <div class="modal fade" id="certModal" tabindex="-1" aria-label="Certificado de ejemplo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/certificado-ejemplo.webp" alt="Ejemplo de certificado de finalización de Artify Basics" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Script/script.js"></script>
+    <script>
+    // Cierra el menú móvil al hacer clic en un enlace
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Curso | Artify Basics</title>
+    <meta name="description" content="Detalle del curso de Artify Basics.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- More Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/Artify tudios.png" type="image/png">
+
+    <style>
+        .cd-wrap { background: #000; padding: 40px 0 80px; min-height: 70vh; }
+        .cd-title { font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
+        .cd-image-box { border: 1px solid var(--border-color); border-radius: 14px; overflow: hidden; background: #000; aspect-ratio: 16 / 9; }
+        .cd-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .cd-section-title { font-weight: 600; font-size: 1.5rem; margin: 2rem 0 .75rem; }
+        .cd-text { color: var(--text-secondary); line-height: 1.7; }
+
+        .cd-learn li { display: flex; gap: .75rem; padding: .85rem 0; border-bottom: 1px solid var(--border-color); }
+        .cd-learn li:last-child { border-bottom: none; }
+        .cd-learn i { color: var(--purple-primary); margin-top: .25rem; }
+        .cd-learn strong { color: var(--text-primary); display: block; }
+        .cd-learn span { color: var(--text-muted); font-size: .95rem; }
+
+        .cd-includes { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+        .cd-include { background: #111; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.1rem; }
+        .cd-include i { color: var(--purple-primary); font-size: 1.6rem; }
+        .cd-include h6 { margin: .6rem 0 .25rem; color: var(--text-primary); font-weight: 600; }
+        .cd-include p { margin: 0; color: var(--text-muted); font-size: .9rem; }
+
+        .cd-spec { background: #1a1a1a; border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; position: sticky; top: 90px; }
+        .cd-spec h2 { font-size: 1.6rem; font-weight: 700; margin: 0 0 .4rem; }
+        .cd-spec .cd-underline { width: 48px; height: 3px; background: var(--purple-primary); border-radius: 2px; margin-bottom: 1.25rem; }
+        .cd-row { display: flex; gap: .9rem; align-items: flex-start; margin-bottom: 1.1rem; }
+        .cd-row-icon { flex: 0 0 40px; height: 40px; border-radius: 10px; background: rgba(217, 72, 95, .12); color: var(--purple-primary); display: flex; align-items: center; justify-content: center; }
+        .cd-row-label { font-size: .8rem; font-weight: 600; color: var(--text-primary); }
+        .cd-row-value { font-weight: 600; color: var(--text-muted); }
+        .cd-row-value.price { color: var(--purple-light); font-size: 1.3rem; font-weight: 700; }
+        .cd-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
+        .cd-tag { font-size: .75rem; font-weight: 600; padding: .2rem .65rem; border-radius: 20px; border: 1px solid rgba(217, 72, 95, .5); background: rgba(217, 72, 95, .1); color: var(--purple-light); }
+        .cd-actions { display: grid; gap: .6rem; margin-top: 1.4rem; }
+
+
+        .cd-pager { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; border-top: 1px solid var(--border-color); margin-top: 3rem; padding-top: 1.5rem; }
+        @media (max-width: 575.98px) { .cd-pager .btn { width: 100%; } }
+        @media (max-width: 991.98px) { .cd-spec { position: static; margin-top: 2rem; } }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="artify-development.html" aria-current="page">Artify Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="cd-wrap">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="cursos.html" class="text-decoration-none">Artify Basics</a></li>
+                    <li class="breadcrumb-item active" id="cdCrumb" aria-current="page">Curso</li>
+                </ol>
+            </nav>
+
+            <div id="cdContent" hidden>
+                <span class="badge bg-outline-purple mb-2" id="cdBadge"></span>
+                <h1 class="cd-title" id="cdTitle"></h1>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="cd-image-box"><img id="cdImg" src="" alt=""></div>
+
+                        <h2 class="cd-section-title">Sobre este curso</h2>
+                        <div id="cdAbout" class="cd-text"></div>
+
+                        <h2 class="cd-section-title">Lo que aprenderás</h2>
+                        <ul id="cdLearn" class="list-unstyled cd-learn mb-0"></ul>
+
+                        <h2 class="cd-section-title">Qué incluye</h2>
+                        <div class="cd-includes">
+                            <div class="cd-include"><i class="bi bi-laptop"></i><h6>Acceso de por vida</h6><p>Entra cuando quieras, desde cualquier dispositivo.</p></div>
+                            <div class="cd-include"><i class="bi bi-person-video3"></i><h6>Instructor experto</h6><p>Aprende de un profesional del 3D y los VFX.</p></div>
+                            <div class="cd-include"><i class="bi bi-award"></i><h6>Certificado oficial</h6><p>Al completar el curso, para tu CV y LinkedIn.</p></div>
+                        </div>
+
+                        <h2 class="cd-section-title">Requisitos</h2>
+                        <ul id="cdReq" class="list-unstyled cd-learn mb-0"></ul>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <aside class="cd-spec">
+                            <h2>Ficha técnica</h2>
+                            <div class="cd-underline"></div>
+
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-tools"></i></div>
+                                <div><div class="cd-row-label">Software</div><div class="cd-tags" id="cdSoftware"></div></div></div>
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-bar-chart"></i></div>
+                                <div><div class="cd-row-label">Nivel</div><div class="cd-row-value" id="cdLevel"></div></div></div>
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-diagram-3"></i></div>
+                                <div><div class="cd-row-label">Temas</div><div class="cd-tags" id="cdTopics"></div></div></div>
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-infinity"></i></div>
+                                <div><div class="cd-row-label">Acceso</div><div class="cd-row-value">De por vida</div></div></div>
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-award"></i></div>
+                                <div><div class="cd-row-label">Certificado</div><div class="cd-row-value">Sí, de finalización</div></div></div>
+                            <div class="cd-row"><div class="cd-row-icon"><i class="bi bi-tag"></i></div>
+                                <div><div class="cd-row-label">Precio</div><div class="cd-row-value price"><span id="cdPrice"></span> <small class="text-muted fw-normal fs-6">COP</small></div></div></div>
+
+                            <div class="cd-actions">
+                                <a id="cdBuy" href="https://www.patreon.com/c/artifystudiosinc" class="btn btn-purple" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right me-2"></i>Ir al curso en Patreon</a>
+                                <a href="https://wa.link/yu2avl" class="btn btn-outline-purple" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Resolver dudas</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+
+                <div class="cd-pager">
+                    <a id="cdPrev" class="btn btn-outline-purple" href="cursos.html"><i class="bi bi-arrow-left me-1"></i>Curso anterior</a>
+                    <a class="btn btn-outline-purple" href="cursos.html#courses"><i class="bi bi-grid me-1"></i>Todos los cursos</a>
+                    <a id="cdNext" class="btn btn-outline-purple" href="cursos.html">Siguiente curso<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div id="cdNotFound" class="text-center py-5" hidden>
+                <h1 class="cd-title">Curso no encontrado</h1>
+                <p class="text-muted mb-4">No pudimos encontrar el curso que buscas.</p>
+                <a href="cursos.html" class="btn btn-purple">Ver todos los cursos</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-brand">
+                            <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+                                <img src="img/Artify Studios blanco.png" alt="Artify Studios">
+                            </a>
+                            <p class="footer-description">
+                                Creando mundos digitales extraordinarios con precisión técnica y visión artística.
+                                Especialistas en modelado 3D, animación y efectos visuales de nivel profesional.
+                            </p>
+                            <div class="social-links">
+                                <h6 class="social-title">Síguenos</h6>
+                                <div class="social-icons">
+                                    <a href="https://wa.link/yu2avl" class="social-link" aria-label="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/juancitow_/" class="social-link" aria-label="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://discord.gg/U8vkHZRyqS" class="social-link" aria-label="discord"><i class="bi bi-discord"></i></a>
+                                    <a href="https://www.youtube.com/@ArtifyStudiosInc" class="social-link" aria-label="youtube"><i class="bi bi-youtube"></i></a>
+                                    <a href="https://www.artstation.com/juancit0w" class="social-link" aria-label="ArtStation"><i class="bi bi-palette"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Navegación</h5>
+                            <ul class="footer-links">
+                                <li><a href="index.html#home">Inicio</a></li>
+                                <li><a href="index.html#about">Sobre Mí</a></li>
+                                <li><a href="proyectos.html">Proyectos</a></li>
+                                <li><a href="cursos.html">Artify Basics</a></li>
+                                <li><a href="artify-development.html">Artify Development</a></li>
+                                <li><a href="index.html#clients">Clientes</a></li>
+                                <li><a href="index.html#contact">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-section">
+                            <h5 class="footer-title">Servicios</h5>
+                            <ul class="footer-links">
+                                <li><a href="proyectos.html">Modelado 3D</a></li>
+                                <li><a href="proyectos.html">Animación</a></li>
+                                <li><a href="proyectos.html">Efectos Visuales</a></li>
+                                <li><a href="proyectos.html">Renderizado</a></li>
+                                <li><a href="proyectos.html">Arquitectura 3D</a></li>
+                                <li><a href="mailto:byartifycol@gmail.com">Consultoría</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="copyright"><p>&copy; 2026 Artify Studios. Todos los derechos reservados.</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="politicaprivacidad.html">Política de Privacidad</a>
+                            <a href="terminos-de-uso.html">Términos de Uso</a>
+                            <a href="cookies.html">Cookies</a>
+                            <a href="aviso-legal.html">Aviso Legal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bg-elements">
+            <div class="bg-element bg-element-1"></div>
+            <div class="bg-element bg-element-2"></div>
+            <div class="bg-element bg-element-3"></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Script/script.js"></script>
+
+    <script>
+    // Cierra el menú móvil al hacer clic en un enlace
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) new bootstrap.Collapse(navbarCollapse, { toggle: false }).hide();
+            });
+        });
+    });
+
+    // ===== Datos de los cursos (edita aquí los textos) =====
+    const PATREON = 'https://www.patreon.com/c/artifystudiosinc';
+    const COURSES = {
+        'materiales': {
+            title: 'Introducción a Materiales', software: 'Blender', level: 'Introductorio', price: '$80.000',
+            img: 'img/Imagenes cursos/curso-materiales-1280.webp', buy: PATREON,
+            topics: ['Shader Editor', 'Principled BSDF', 'PBR', 'Texturas'],
+            about: ['Aprende a crear materiales realistas y estilizados usando el sistema de nodos de Blender. Es un curso introductorio: partimos desde cero para que entiendas cómo funciona un material y puedas construir los tuyos.'],
+            learn: [
+                ['Shader Editor y nodos básicos', 'Cómo se conectan los nodos y cómo se construye un material paso a paso.'],
+                ['Principled BSDF y materiales PBR', 'Los parámetros del shader principal para lograr superficies realistas.'],
+                ['Texturas y mapas', 'Cómo aplicar texturas y usar mapas para dar detalle a tus modelos.']
+            ],
+            req: ['Tener Blender instalado (es gratuito).', 'No necesitas experiencia previa en materiales.']
+        },
+        'particle-system': {
+            title: 'Introducción a Particle System', software: 'Blender', level: 'Introductorio', price: '$80.000',
+            img: 'img/Imagenes cursos/curso-particle-system-1280.webp', buy: PATREON,
+            topics: ['Emisores', 'Física', 'Fuerzas', 'Render'],
+            about: ['Crea efectos con partículas: emisión, física y renderizado de elementos en movimiento. Un punto de partida práctico para dar vida a tus escenas con efectos.'],
+            learn: [
+                ['Emisores y configuración de partículas', 'Cómo crear y ajustar un sistema de partículas desde cero.'],
+                ['Fuerzas y física', 'Controla el movimiento de las partículas con fuerzas y simulación.'],
+                ['Materiales y render de efectos', 'Dale apariencia a tus partículas y renderiza el resultado final.']
+            ],
+            req: ['Tener Blender instalado (es gratuito).', 'Conocer lo básico de la interfaz ayuda, pero no es obligatorio.']
+        },
+        'geometry-nodes': {
+            title: 'Introducción a Geometry Nodes', software: 'Blender', level: 'Introductorio', price: '$80.000',
+            img: 'img/Imagenes cursos/curso-geometry-nodes-1280.webp', buy: PATREON,
+            topics: ['Procedural', 'Instancias', 'Nodos'],
+            about: ['Descubre el modelado procedural: genera geometría y animaciones mediante nodos. Ideal para empezar a pensar en sistemas en lugar de objetos individuales.'],
+            learn: [
+                ['Fundamentos del flujo de nodos', 'Cómo fluye la geometría entre nodos y cómo leer un árbol de nodos.'],
+                ['Instancias y distribución de objetos', 'Distribuye objetos sobre superficies de forma controlada.'],
+                ['Efectos procedurales', 'Crea efectos y variaciones que puedes modificar en cualquier momento.']
+            ],
+            req: ['Tener Blender instalado (es gratuito).', 'No necesitas experiencia previa con nodos.']
+        },
+        'modelado-personajes': {
+            title: 'Introducción al modelado de personajes', software: 'Autodesk Maya', level: 'Introductorio', price: '$180.000',
+            img: 'img/Imagenes cursos/curso-modelado-personajes-1280.webp', buy: PATREON,
+            topics: ['Blocking', 'Topología', 'Rostro', 'Accesorios'],
+            about: ['Modela un personaje completo en Maya, desde la forma base hasta el detalle final. Un recorrido de principio a fin para que veas todo el proceso en un solo proyecto.'],
+            learn: [
+                ['Blocking y proporciones', 'Define la forma base y las proporciones de tu personaje.'],
+                ['Topología para personajes', 'Organiza la malla correctamente para que deforme y se vea bien.'],
+                ['Modelado de rostro y accesorios', 'Trabaja el detalle del rostro y los elementos del personaje.']
+            ],
+            req: ['Tener Autodesk Maya instalado.', 'No necesitas experiencia previa en modelado de personajes.']
+        }
+    };
+    const ORDER = Object.keys(COURSES);
+
+    (function () {
+        const id = new URLSearchParams(location.search).get('id');
+        const c = COURSES[id];
+        if (!c) { document.getElementById('cdNotFound').hidden = false; return; }
+
+        const $ = s => document.getElementById(s);
+        const li = (icon, t, d) => `<li><i class="bi ${icon}"></i><div>${d ? `<strong>${t}</strong><span>${d}</span>` : `<span>${t}</span>`}</div></li>`;
+
+        document.title = c.title + ' | Artify Basics';
+        document.querySelector('meta[name="description"]').content = c.about[0];
+        $('cdCrumb').textContent = c.title;
+        $('cdBadge').textContent = c.software;
+        $('cdTitle').textContent = c.title;
+        $('cdImg').src = c.img; $('cdImg').alt = c.title;
+        $('cdAbout').innerHTML = c.about.map(p => `<p>${p}</p>`).join('');
+        $('cdLearn').innerHTML = c.learn.map(l => li('bi-check-circle-fill', l[0], l[1])).join('');
+        $('cdReq').innerHTML = c.req.map(r => li('bi-dot', r)).join('');
+        $('cdSoftware').innerHTML = `<span class="cd-tag">${c.software}</span>`;
+        $('cdTopics').innerHTML = c.topics.map(t => `<span class="cd-tag">${t}</span>`).join('');
+        $('cdLevel').textContent = c.level;
+        $('cdPrice').textContent = c.price;
+        $('cdBuy').href = c.buy;
+
+        const i = ORDER.indexOf(id);
+        $('cdPrev').href = 'curso.html?id=' + ORDER[(i - 1 + ORDER.length) % ORDER.length];
+        $('cdNext').href = 'curso.html?id=' + ORDER[(i + 1) % ORDER.length];
+        $('cdContent').hidden = false;
+    })();
+    </script>
+</body>
+</html>
