@@ -3556,3 +3556,374 @@ body {
 @media (max-width: 575.98px) {
     .pd-nav .btn { width: 100%; }
 }
+
+/* ============================================================
+   HEADER MODERNO · barra flotante tipo píldora (estilo Apple)
+   Cristal esmerilado, luz en el borde superior, subrayado de
+   acento en los enlaces y botón de acción a la derecha.
+   Se mantiene la estructura Bootstrap (navbar-collapse en móvil).
+   ============================================================ */
+.navbar.nav-modern {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    padding: 14px 16px;
+    background: transparent !important;
+    backdrop-filter: none;
+    border: 0;
+    box-shadow: none !important;
+    pointer-events: none;               /* solo la píldora recibe clics */
+}
+
+.nav-modern .nav-pill {
+    pointer-events: auto;
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 8px 10px 8px 20px;
+    border-radius: 20px;
+    background: rgba(18, 18, 22, 0.62);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    flex-wrap: nowrap;
+    align-items: center;
+    transition: max-width .55s cubic-bezier(.2, .8, .2, 1),
+                background .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+/* línea de luz en el borde superior */
+.nav-modern .nav-pill::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 22%;
+    right: 22%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), var(--purple-light), transparent);
+    opacity: .75;
+    pointer-events: none;
+    transition: left .55s ease, right .55s ease, opacity .35s ease;
+}
+.nav-modern .nav-pill:hover::before { left: 8%; right: 8%; opacity: 1; }
+
+/* al hacer scroll la píldora se estrecha y gana cuerpo */
+.nav-modern.is-scrolled .nav-pill {
+    max-width: 940px;
+    background: rgba(14, 14, 18, 0.82);
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* logo */
+.nav-modern .navbar-brand { margin: 0; padding: 0; }
+.nav-modern .navbar-brand img {
+    height: 30px;
+    width: auto;
+    border-radius: 0;
+    display: block;
+}
+
+/* enlaces */
+.nav-modern .navbar-nav { gap: 2px; align-items: center; }
+.nav-modern .navbar-nav .nav-link {
+    position: relative;
+    padding: 9px 14px;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: #9ca3af !important;
+    border-radius: 10px;
+    transition: color .25s ease, background .25s ease;
+}
+.nav-modern .navbar-nav .nav-link:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.04);
+}
+.nav-modern .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 3px;
+    width: auto;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--purple-light), var(--purple-primary));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+.nav-modern .navbar-nav .nav-link:hover::after,
+.nav-modern .navbar-nav .nav-link.active::after {
+    width: auto;
+    left: 14px;
+    transform: scaleX(1);
+}
+.nav-modern .navbar-nav .nav-link.active { color: #fff !important; }
+
+/* botón de acción (Contacto) */
+.nav-modern .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 12px;
+    font-size: .88rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.nav-modern .nav-cta i { font-size: .8rem; transition: transform .25s ease; }
+.nav-modern .nav-cta:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(201, 74, 90, 0.55);
+    box-shadow: 0 0 0 4px rgba(201, 74, 90, 0.12);
+    color: #fff;
+}
+.nav-modern .nav-cta:hover i { transform: translate(2px, -2px); }
+.nav-modern .nav-cta:active { transform: scale(.97); }
+
+/* botón hamburguesa */
+.nav-modern .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 6px 10px;
+    box-shadow: none !important;
+}
+
+/* escritorio: enlaces centrados, botón a la derecha */
+@media (min-width: 992px) {
+    .nav-modern .navbar-collapse {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        flex-grow: 1;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-modern .navbar-nav { margin: 0 auto !important; padding: 0; }
+}
+
+/* móvil: el menú se despliega dentro de la píldora */
+@media (max-width: 991.98px) {
+    .navbar.nav-modern { padding: 10px 12px; }
+    .nav-modern .nav-pill {
+        flex-wrap: wrap;
+        padding: 8px 10px 8px 16px;
+        border-radius: 18px;
+    }
+    .nav-modern.is-scrolled .nav-pill { max-width: 1120px; }
+    .nav-modern .navbar-collapse {
+        flex-basis: 100%;
+        margin: 10px 0 0;
+        padding: 8px 0 4px;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .nav-modern .navbar-nav { padding: 4px 0; align-items: stretch; gap: 0; }
+    .nav-modern .navbar-nav .nav-link {
+        margin: 0;
+        padding: 12px 12px;
+        border: 0;
+        border-radius: 10px;
+    }
+    .nav-modern .navbar-nav .nav-link::after { left: 12px; right: auto; width: 24px; bottom: 6px; }
+    .nav-modern .nav-cta { width: 100%; justify-content: center; margin: 6px 0 4px; padding: 12px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-modern .nav-pill,
+    .nav-modern .nav-pill::before,
+    .nav-modern .navbar-nav .nav-link,
+    .nav-modern .navbar-nav .nav-link::after,
+    .nav-modern .nav-cta { transition: none; }
+}
+
+
+/* ============================================================
+   SELECTOR DE IDIOMA (header) · es · en · fr · pt · zh · ja
+   ============================================================ */
+.lang-switch { position: relative; }
+
+.nav-modern .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #9ca3af;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: color .25s ease, background .25s ease, border-color .25s ease;
+}
+.nav-modern .lang-btn .bi-globe2 { font-size: 1rem; }
+.nav-modern .lang-btn .lang-caret { font-size: .65rem; opacity: .7; transition: transform .25s ease; }
+.nav-modern .lang-btn:hover,
+.lang-switch.open .lang-btn {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.lang-switch.open .lang-caret { transform: rotate(180deg); }
+.nav-modern .lang-btn:focus-visible,
+.nav-modern .lang-item:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 2px; }
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 5;
+    min-width: 190px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border-radius: 16px;
+    background: rgba(18, 18, 22, 0.92);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px) scale(.98);
+    transform-origin: top right;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.lang-switch.open .lang-menu { opacity: 1; visibility: visible; transform: none; }
+
+.lang-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #d1d5db;
+    font-size: .9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+.lang-item:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
+.lang-item .lang-code {
+    flex: 0 0 34px;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #9ca3af;
+}
+.lang-item .lang-name { flex: 1; }
+.lang-item .lang-check { opacity: 0; color: var(--purple-light); }
+.lang-item.active { color: #fff; }
+.lang-item.active .lang-code { background: rgba(201, 74, 90, .22); color: #fff; }
+.lang-item.active .lang-check { opacity: 1; }
+
+/* escritorio: que los enlaces no se partan en francés/portugués */
+@media (min-width: 992px) {
+    .nav-modern .navbar-nav .nav-link { white-space: nowrap; }
+    .nav-modern .navbar-collapse { gap: 6px; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .nav-modern .navbar-nav .nav-link { padding: 9px 9px; font-size: .84rem; }
+    .nav-modern .navbar-nav .nav-link::after { left: 9px; right: 9px; }
+    .nav-modern .nav-cta { padding: 9px 13px; }
+}
+
+/* móvil: la lista de idiomas se despliega dentro del menú */
+@media (max-width: 991.98px) {
+    .lang-switch { margin: 4px 0; }
+    .nav-modern .lang-btn { width: 100%; justify-content: flex-start; height: 44px; padding: 0 12px; }
+    .nav-modern .lang-btn .lang-caret { margin-left: auto; }
+    .lang-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        margin-top: 4px;
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+    }
+    .lang-switch.open .lang-menu { display: grid; }
+}
+
+/* tipografías para chino y japonés (Inter no incluye esos caracteres) */
+html[lang="zh-Hans"] body, html[lang="zh-Hans"] button, html[lang="zh-Hans"] input, html[lang="zh-Hans"] textarea {
+    font-family: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+html[lang="ja"] body, html[lang="ja"] button, html[lang="ja"] input, html[lang="ja"] textarea {
+    font-family: 'Inter', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
+}
+html[lang="zh-Hans"] *, html[lang="ja"] * { word-break: normal; line-break: strict; }
+
+/* aviso de documento legal solo en español */
+.legal-lang-note {
+    max-width: 960px;
+    margin: 18px auto 0;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(201, 74, 90, 0.35);
+    background: rgba(201, 74, 90, 0.08);
+    color: #e5e7eb;
+    font-size: .9rem;
+    text-align: center;
+}
+
+
+/* ============================================================
+   HEADER SIN FONDO · la píldora flota sobre el contenido
+   La franja del header ya no ocupa espacio ni pinta fondo:
+   solo se ve la barra de cristal.
+   ============================================================ */
+:root { --nav-h: 86px; }
+
+.navbar.nav-modern {
+    height: var(--nav-h);
+    margin-bottom: calc(var(--nav-h) * -1);   /* el contenido sube y queda bajo la barra */
+    padding: 0;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+.navbar.nav-modern .nav-pill {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    margin: 0 auto;
+}
+
+/* páginas sin imagen de portada: un poco de aire para que la barra no tape el título */
+.nav-modern + .legal-hero { padding-top: 100px; }
+.nav-modern + .cd-wrap,
+.nav-modern + .pd-wrap { padding-top: 104px; }
+.nav-modern + .projects-page { padding-top: 112px !important; }
+
+@media (max-width: 991.98px) {
+    :root { --nav-h: 78px; }
+    .navbar.nav-modern .nav-pill { top: 10px; left: 12px; right: 12px; }
+}

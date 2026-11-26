@@ -56,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Navbar background on scroll
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow');
-        } else {
-            navbar.classList.remove('shadow');
-        }
-    });
+    const updateNavbar = function() {
+        if (!navbar) { return; }
+        navbar.classList.toggle('is-scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
     
     // Add scroll to top button
     const scrollToTopBtn = document.createElement('button');
@@ -103,12 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Basic validation
             if (!name || !email || !subject || !message) {
-                alert('Por favor, completa todos los campos.');
+                alert(window.ArtifyI18n ? ArtifyI18n.t('Por favor, completa todos los campos.') : 'Por favor, completa todos los campos.');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                alert('Por favor, introduce un email válido.');
+                alert(window.ArtifyI18n ? ArtifyI18n.t('Por favor, introduce un email válido.') : 'Por favor, introduce un email válido.');
                 return;
             }
             
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                alert('¡Mensaje enviado correctamente! Te contactaré pronto.');
+                alert(window.ArtifyI18n ? ArtifyI18n.t('¡Mensaje enviado correctamente! Te contactaré pronto.') : '¡Mensaje enviado correctamente! Te contactaré pronto.');
                 this.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -203,6 +202,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let i = 0;
         
         function typeWriter() {
+            // si el visitante eligió otro idioma, se muestra el título completo (el traductor lo convierte)
+            if (window.ArtifyI18n && ArtifyI18n.lang !== 'es') {
+                heroTitle.textContent = text;
+                return;
+            }
             if (i < text.length) {
                 heroTitle.textContent += text.charAt(i);
                 i++;
@@ -825,7 +829,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 
                 // Show a demo modal or alert
-                alert('¡Enlace al curso! Aquí se abriría la página del curso.');
+                alert(window.ArtifyI18n ? ArtifyI18n.t('¡Enlace al curso! Aquí se abriría la página del curso.') : '¡Enlace al curso! Aquí se abriría la página del curso.');
             }
         });
     });
@@ -1007,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 
                 const platform = this.getAttribute('aria-label');
-                showNotification(`Redirigiendo a ${platform}...`, 'info');
+                showNotification(window.ArtifyI18n ? ArtifyI18n.t('Redirigiendo a {0}...', [platform]) : `Redirigiendo a ${platform}...`, 'info');
                 
                 // In a real implementation, you would track this event
                 // gtag('event', 'social_click', { platform: platform });

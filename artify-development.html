@@ -116,29 +116,30 @@
         .dev-cta { background: #000; padding: 70px 0; text-align: center; border-top: 1px solid var(--border-color); }
         @media (max-width: 575px) { .product-body { padding: 1.5rem; } }
     </style>
+    <script src="Script/i18n.js"></script>
 </head>
 <body>
 
     <!-- Header/Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg sticky-top nav-modern">
+        <div class="container nav-pill">
             <a class="navbar-brand d-flex align-items-center" href="index.html#home">
                 <img src="img/Artify Studios blanco.png" alt="Artify Studios">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre Mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonios</a></li>
                     <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="cursos.html">Artify Basics</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="artify-development.html" aria-current="page">Artify Development</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="artify-development.html">Artify Development</a></li>
                 </ul>
+                <a class="nav-cta" href="index.html#contact">Contacto <i class="bi bi-arrow-up-right"></i></a>
             </div>
         </div>
     </nav>
